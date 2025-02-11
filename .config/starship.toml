@@ -63,7 +63,7 @@ style = "bold yellow"
 format = "on [$symbol($profile)]($style) "
 
 [custom.dotsync]
-command = "cat /tmp/dot_status 2>/dev/null || echo ''"
+command = "cat /tmp/dot_status 2>/dev/null && rm /tmp/dot_status 2>/dev/null || echo ''"
 when = "test -s /tmp/dot_status"
 format = "[$output]($style) "
 style = "bold green"
