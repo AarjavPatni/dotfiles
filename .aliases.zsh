@@ -17,7 +17,6 @@ alias success='osascript -e '\''display notification "Your command ran successfu
 alias zc='nvim ~/.local/share/chezmoi/dot_zshrc.tmpl'
 alias zcc='cursor ~/.local/share/chezmoi/dot_zshrc.tmpl'
 alias zs='source ~/.zshrc'
-alias dot='/usr/bin/git --git-dir=/Users/aarjav/.dotfiles/ --work-tree=/Users/aarjav'
 
 # Git aliases
 alias ga='git add'

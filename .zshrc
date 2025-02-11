@@ -1,6 +1,8 @@
 # For debugging startup time, uncomment these lines:
 # zmodload zsh/zprof
 
+alias dot='/usr/bin/git --git-dir=/Users/aarjav/.dotfiles/ --work-tree=/Users/aarjav'
+
 if [[ "$(uname)" == "Darwin" ]]; then
 
 export PATH="/opt/homebrew/bin:/usr/local/bin:/Users/aarjav/.local/bin:/usr/local/opt/python@3.12/bin:$PATH"
@@ -28,35 +30,72 @@ fi
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
+function write_message () {
+  if [[ "$#" -eq 0 ]]; then
+    echo "write_message: please provide a message"
+    return
+  fi
+
+  local message="${*}  "
+
+  local reset=$(tput sgr0)
+  local set_fg_green=$(tput setaf 2)
+  local set_fg_yellow=$(tput setaf 3)
+  
+  # Choose color based on message content
+  local color
+  if [[ $message == *"❌"* ]]; then
+    color=$set_fg_yellow
+  elif [[ $message == *"✅"* ]]; then
+    color=$set_fg_green
+  else
+    color=$set_fg_green
+  fi
+  
+  echo -n "${color}${message}${reset}"
+  echo
+}
+
 check_dot_status() {
-  # Function to display a message in the top right corner
-  display_message() {
-    local message="$1"
-    local cols=$(tput cols)
-    local lines=$(tput lines)
-    tput cup 0 $((cols - ${#message}))
-    echo -n "$message"
-    tput cup $lines 0  # Move cursor back to the bottom
-  }
+  # Use a lock file to prevent concurrent execution
+  local lock_file="/tmp/dot_status.lock"
+  
+  # Exit if lock exists (another process is running)
+  if [ -f "$lock_file" ]; then
+    # Check if the lock is stale (older than 1 minute)
+    if test "$(find "$lock_file" -mmin +1)"; then
+      rm -f "$lock_file"
+    else
+      return
+    fi
+  fi
+
+  # Create lock file
+  touch "$lock_file"
+
+  # Ensure lock file is removed when function exits
+  trap "rm -f $lock_file" EXIT
 
   # Pull and rebase from the remote repository
-  if git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" pull --rebase &>/dev/null; then
-    display_message "Dotfiles Updated: Changes pulled and rebased from remote."
+  if dot pull --rebase &>/dev/null; then
+    write_message "✅ Dotfiles synced." &
   else
-    display_message "Dotfiles Sync Warning: Failed to pull and rebase from remote."
+    write_message "❌ Dotfiles failed to sync." &
     return 1
   fi
 
   # Check if there are local changes to push
-  if ! git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" diff --quiet; then
-    if git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" push &>/dev/null; then
-      display_message "Dotfiles Updated: Local changes pushed to remote."
+  if ! dot diff --quiet &>/dev/null; then
+    # Generate a commit message
+    commit_message="Update $(date '+%Y-%m-%d %H:%M:%S')"
+    dot commit -am "$commit_message" &>/dev/null
+
+    if dot push &>/dev/null; then
+      write_message "✅ Dotfiles pushed." &
     else
-      display_message "Dotfiles Sync Warning: Failed to push local changes to remote."
+      write_message "❌ Dotfiles failed to push." &
       return 1
     fi
-  else
-    display_message "Dotfiles Status: No local changes to push."
   fi
 }
 
