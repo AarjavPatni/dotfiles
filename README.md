@@ -1,5 +1,5 @@
 # Replicating Dotfiles
-Note: This will overwrite local dotfiles
+⚠️ This will overwrite local dotfiles
 ```
 git clone --bare git@github.com:AarjavPatni/dotfiles.git $HOME/.dotfiles
 alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
