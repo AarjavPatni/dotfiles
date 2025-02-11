@@ -61,10 +61,9 @@ disabled = false
 symbol = "☁️"
 style = "bold yellow"
 format = "on [$symbol($profile)]($style) "
-env_var = "AWS_PROFILE"
 
 [custom.dotsync]
 command = "cat /tmp/dot_status 2>/dev/null || echo ''"
-when = "true"
+when = "test -s /tmp/dot_status"
 format = "[$output]($style) "
 style = "bold green"

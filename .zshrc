@@ -57,39 +57,15 @@ function write_message() {
 }
 
 check_dot_status() {
-  # Use a lock file to prevent concurrent execution
-  local lock_file="/tmp/dot_status.lock"
-
-  # Exit if lock exists (another process is running)
-  if [ -f "$lock_file" ]; then
-    # Check if the lock is stale (older than 1 minute)
-    if test "$(find "$lock_file" -mmin +1)"; then
-      rm -f "$lock_file"
-    else
-      return
-    fi
-  fi
-
-  # Create lock file
-  touch "$lock_file"
-
-  # Ensure lock file is removed when function exits
-  trap "rm -f $lock_file" EXIT
-
-  # Check if there are local changes to push
   if ! dot diff --quiet &>/dev/null; then
-    # Generate a commit message
     commit_message="Update $(date '+%Y-%m-%d %H:%M:%S')"
     dot commit -am "$commit_message" &>/dev/null
-    
-    # Pull and rebase from the remote repository
     if dot pull --rebase &>/dev/null; then
-      echo "✅" >/tmp/dot_status
+      echo "" >/tmp/dot_status
     else
       echo "❌" >/tmp/dot_status
       return 1
     fi
-
     if dot push &>/dev/null; then
       echo "✅" >/tmp/dot_status
     else
@@ -97,7 +73,7 @@ check_dot_status() {
       return 1
     fi
   else
-    echo "✅" >/tmp/dot_status
+    echo "" >/tmp/dot_status
   fi
 }
 
