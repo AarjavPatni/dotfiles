@@ -67,7 +67,7 @@ check_dot_status() {
       return 1
     fi
     if dot push &>/dev/null; then
-      echo "✅" >/tmp/dot_status
+      echo "✅ ↑" >/tmp/dot_status
     else
       echo "❌ ↑" >/tmp/dot_status
       return 1

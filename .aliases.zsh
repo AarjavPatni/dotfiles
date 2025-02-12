@@ -13,7 +13,6 @@ alias v=nvim
 alias v.="nvim ."
 alias nv="nvim"
 alias cat="bat"
-alias upgrade-all='brew update && brew upgrade && brew cleanup && brew autoremove'
 alias success='osascript -e '\''display notification "Your command ran successfully." with title "Success"'\'''
 alias zc='nvim ~/.local/share/chezmoi/dot_zshrc.tmpl'
 alias zcc='cursor ~/.local/share/chezmoi/dot_zshrc.tmpl'
@@ -48,6 +47,11 @@ alias tat='tmux attach-session -t'
 alias tkill='tmux kill-session -t'
 alias tkillall='tmux kill-server'
 alias ts='tmux source-file ~/.tmux.conf'
+
+# MacOS specific
+if [[ "$(uname)" == "Darwin" ]]; then
+  alias upgrade-all='brew update && brew upgrade && brew cleanup && brew autoremove'
+fi
 
 # Useful Functions
 notify() { osascript -e "display notification \"$1\" with title \"$2\""; }
