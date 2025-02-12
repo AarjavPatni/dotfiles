@@ -1,7 +1,7 @@
 # For debugging startup time, uncomment these lines:
 # zmodload zsh/zprof
 
-alias dot='/usr/bin/git --git-dir=/Users/aarjav/.dotfiles/ --work-tree=/Users/aarjav'
+alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 
 if [[ "$(uname)" == "Darwin" ]]; then
 
