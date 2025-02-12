@@ -12,6 +12,7 @@ alias clear="clear && printf '\e[3J'"
 alias v=nvim
 alias v.="nvim ."
 alias nv="nvim"
+alias cat="bat"
 alias upgrade-all='brew update && brew upgrade && brew cleanup && brew autoremove'
 alias success='osascript -e '\''display notification "Your command ran successfully." with title "Success"'\'''
 alias zc='nvim ~/.local/share/chezmoi/dot_zshrc.tmpl'
