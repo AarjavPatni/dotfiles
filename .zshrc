@@ -66,6 +66,12 @@ check_dot_status() {
     commit_message="Update $(date '+%Y-%m-%d %H:%M:%S')"
     dot add ~/.config/nvim/ ~/.config/kitty/
     dot commit -am "$commit_message" &>/dev/null
+
+    # Update the nvim submodule reference
+    dot submodule update --remote --rebase &>/dev/null
+    dot add .config/nvim
+    dot commit -am "Update nvim submodule reference" &>/dev/null
+
     if dot pull --rebase &>/dev/null; then
       echo "" >/tmp/dot_status
     else
