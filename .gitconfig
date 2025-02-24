@@ -1,19 +1,9 @@
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 [user]
-	name = Aarjav
-	email = 68058926+AarjavPatni@users.noreply.github.com
-[push]
-	autoSetupRemote = true
-	default = current
-[credential "https://github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
-[includeIf "gitdir:~/Documents/side-projects/"]
-	path = ~/Documents/side-projects
+	name = Aarjav Patni
+	email = aarjav@voltra.energy
+[core]
+	editor = neovim
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
