@@ -1,9 +1,0 @@
-[user]
-	name = Aarjav Patni
-	email = aarjav@voltra.energy
-[core]
-	editor = neovim
-[init]
-	defaultBranch = main
-[color]
-	ui = auto
