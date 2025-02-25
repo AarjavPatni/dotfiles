@@ -52,6 +52,9 @@ alias ts='tmux source-file ~/.tmux.conf'
 # MacOS specific
 if [[ "$(uname)" == "Darwin" ]]; then
   alias upgrade-all='brew update && brew upgrade && brew cleanup && brew autoremove'
+  alias bi='brew install'
+  alias bu='brew uninstall'
+  alias bri='brew reinstall'
 fi
 
 # Useful Functions
