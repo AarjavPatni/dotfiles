@@ -59,6 +59,7 @@ function write_message() {
 check_dot_status() {
   if ! dot diff --quiet &>/dev/null; then
     commit_message="Update $(date '+%Y-%m-%d %H:%M:%S')"
+    dot add ~/.config/nvim/ ~/.config/kitty/
     dot commit -am "$commit_message" &>/dev/null
     if dot pull --rebase &>/dev/null; then
       echo "" >/tmp/dot_status
