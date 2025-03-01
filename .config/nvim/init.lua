@@ -10,5 +10,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	end,
 })
 
+-- load SnipMate for LuaSnip
+require("luasnip.loaders.from_snipmate").lazy_load()
+
 -- Keymaps
 vim.keymap.set("n", ";", ":", { noremap = true })
