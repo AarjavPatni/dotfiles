@@ -1,0 +1,99 @@
+{
+  "Boilerplate for Competitive Programming": {
+    "prefix": "bpcp",
+    "body": [
+      "#include <iostream>",
+      "#include <vector>",
+      "#include <map>",
+      "#include <stack>",
+      "#include <queue>",
+      "#include <set>",
+      "#include <algorithm>",
+      "#include <cassert>",
+      "#include <cmath>",
+      "using namespace std;",
+      "",
+      "typedef long int li;",
+      "typedef long long ll;",
+      "typedef long double ld;",
+      "typedef vector<int> vi;",
+      "typedef pair<int, int> pii;",
+      "#define F first",
+      "#define S second",
+      "#define PB push_back",
+      "#define MP make_pair",
+      "#define REP(i, a, b) for (int i = a; i < b; i++)",
+      "",
+      "int main() {",
+      "\tios::sync_with_stdio(0);",
+      "\tcin.tie(0);",
+      "",
+      "\tint cases = 0;",
+      "\tcin >> cases;",
+      "\t",
+      "\tfor (int case_index = 0; case_index < cases; case_index++) {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Standard C++ Boilerplate"
+  },
+  "Boilerplate": {
+    "prefix": "bp",
+    "body": [
+      "#include <iostream>",
+      "#include <string>",
+      "#include <vector>",
+      "using namespace std;",
+      "",
+      "int main() {",
+      "\t$1",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Basic main function"
+  },
+  "Print to Console": {
+    "prefix": "cout",
+    "body": [
+      "cout << \"$1\" << endl;"
+    ],
+    "description": "Print to console"
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for (int i = 0; i < $1; ++i) {",
+      "\t// Your code here",
+      "}"
+    ],
+    "description": "Basic for loop"
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": [
+      "while ($1) {",
+      "\t// Your code here",
+      "}"
+    ],
+    "description": "Basic while loop"
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": [
+      "if ($1) {",
+      "\t// Your code here",
+      "}"
+    ],
+    "description": "Basic if statement"
+  },
+  "Function": {
+    "prefix": "function",
+    "body": [
+      "$1 functionName($2) {",
+      "\t// Your code here",
+      "}"
+    ],
+    "description": "Basic function template"
+  }
+}
