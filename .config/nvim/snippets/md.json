@@ -1,0 +1,33 @@
+{
+  "Project Template": {
+    "prefix": "pj",
+    "body": [
+      "---",
+      "title: \"$1\"",
+      "description: \"$2\"",
+      "date: \"$3\"",
+      "repoURL: \"$4\"",
+      "tags: \"$5\"",
+      "---",
+      "",
+      "$0",
+      ""
+    ],
+    "description": "Add new project"
+  },
+  "Blog Post Template": {
+    "prefix": "bp",
+    "body": [
+      "---",
+      "title: \"$1\"",
+      "description: \"$2\"",
+      "date: \"$3\"",
+      "tags: \"$4\"",
+      "---",
+      "",
+      "$0",
+      ""
+    ],
+    "description": "Add new blog post"
+  }
+}
