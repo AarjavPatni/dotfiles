@@ -49,6 +49,16 @@ alias tkill='tmux kill-session -t'
 alias tkillall='tmux kill-server'
 alias ts='tmux source-file ~/.tmux.conf'
 
+# terraform
+alias tfi='terraform init'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+alias tfaa='terraform apply -auto-approve'
+alias tfip='terraform init && terraform plan'
+alias tfpa='terraform plan && terraform apply'
+alias tfia='terraform init && terraform apply'
+alias tfiaa='terraform init && terraform apply -auto-approve'
+
 # MacOS specific
 if [[ "$(uname)" == "Darwin" ]]; then
   alias upgrade-all='brew update && brew upgrade && brew cleanup && brew autoremove'
