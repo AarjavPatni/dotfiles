@@ -50,6 +50,7 @@ alias tkillall='tmux kill-server'
 alias ts='tmux source-file ~/.tmux.conf'
 
 # terraform
+alias tf='terraform'
 alias tfi='terraform init'
 alias tfp='terraform plan'
 alias tfa='terraform apply'
