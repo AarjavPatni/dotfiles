@@ -9,6 +9,3 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		end, 1)
 	end,
 })
-
--- Keymaps
-vim.keymap.set("n", ";", ":", { noremap = true })
