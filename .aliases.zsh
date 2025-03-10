@@ -38,6 +38,7 @@ alias gcl='git clone'
 alias gcf='git config --list'
 alias gst='git stash'
 alias gsa='git stash apply'
+alias lg='lazygit'
 
 # tmux aliases
 alias tmux='tmux -2'
