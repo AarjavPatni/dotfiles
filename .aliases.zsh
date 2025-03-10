@@ -67,6 +67,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   alias bi='brew install'
   alias bu='brew uninstall'
   alias bri='brew reinstall'
+  alias c.='cursor .'
 fi
 
 # Useful Functions
