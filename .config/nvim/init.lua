@@ -2,10 +2,10 @@
 require("config.lazy")
 
 -- load last session
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		vim.defer_fn(function()
-			require("persistence").load()
-		end, 1)
-	end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+-- 	callback = function()
+-- 		vim.defer_fn(function()
+-- 			require("persistence").load()
+-- 		end, 1)
+-- 	end,
+-- })
