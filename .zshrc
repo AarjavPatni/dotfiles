@@ -11,6 +11,10 @@ if [[ "$(uname)" == "Darwin" ]]; then
 
 fi
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+
 eval "$(starship init zsh)"
 
 if [[ -n $SSH_CONNECTION ]]; then
