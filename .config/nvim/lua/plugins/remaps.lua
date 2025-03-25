@@ -31,7 +31,7 @@ vnoremap("<leader>d", "\"_d")
 
 -- search dots
 nnoremap("<leader>fp", function()
-    require('yash.telescope').search_dotfiles()
+    require('plugins.telescope').search_dotfiles()
 end)
 
 -- search files

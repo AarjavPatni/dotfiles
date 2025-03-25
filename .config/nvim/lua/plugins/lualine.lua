@@ -378,7 +378,7 @@ end
 
 require('lualine').setup {
     options = {
-        theme = 'kanagawa-dragon',
+        theme = 'kanagawa',
         component_separators = '',
         --section_separators = { left = '', right = '' },
         section_separators = '',

@@ -53,41 +53,37 @@ end
 local lspconfig = require('lspconfig')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-local servers = { 'tsserver', 'gopls', 'clangd', 'elixir-ls'}
 
-for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        flags = { debounce_text_changes = 150}
-    }
-end
+-- Mason will handle the installation of LSP servers
+require("mason").setup()
+require("mason-lspconfig").setup()
 
-require'lspconfig'.elixirls.setup{
-    -- Unix
-    cmd = { "/opt/homebrew/bin/elixir-ls" };
+-- Setup each LSP server with the same default configuration
+require("mason-lspconfig").setup_handlers {
+    -- Default handler for all servers
+    function(server_name)
+        lspconfig[server_name].setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            flags = { debounce_text_changes = 150 }
+        }
+    end,
+    
+    -- Override handler for specific servers if needed
+    ["lua_ls"] = function()
+        lspconfig.lua_ls.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = {
+                Lua = {
+                    runtime = { version = 'LuaJIT' },
+                    diagnostics = { globals = {'vim'} },
+                    workspace = {
+                        library = vim.api.nvim_get_runtime_file("", true),
+                    },
+                    telemetry = { enable = false },
+                },
+            },
+        }
+    end,
 }
-
-lspconfig.lua_ls.setup {
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-}
-

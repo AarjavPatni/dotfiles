@@ -31,13 +31,13 @@ xnoremap("<leader>p", "\"_dP")
 nnoremap("<leader>d", "\"_d")
 vnoremap("<leader>d", "\"_d")
 
--- search dots
-nnoremap("<leader>fp", function()
-    require('yash.telescope').search_dotfiles()
+-- search dotfiles
+nnoremap("<leader>.", function()
+    require('plugins.telescope').search_dotfiles()
 end)
 
 -- search files
-nnoremap("<leader>.", ":Telescope find_files <CR>")
+nnoremap("<leader>f", ":Telescope find_files <CR>")
 nnoremap("<leader>g", ":Telescope live_grep <CR>")
 -- open tele
 nnoremap("<leader>t", ":Telescope <CR>")

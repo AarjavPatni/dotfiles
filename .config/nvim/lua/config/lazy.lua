@@ -27,8 +27,7 @@ require('lazy').setup({
     {
         "rebelot/kanagawa.nvim",
         config = function()
-            vim.cmd [[set termguicolors]]
-            vim.cmd.colorscheme('kanagawa-dragon')
+            vim.cmd.colorscheme('kanagawa')
         end,
     },
 
@@ -80,6 +79,11 @@ require('lazy').setup({
             'nvim-lua/plenary.nvim',
             'nvim-lua/popup.nvim',
         },
+        config = function() require('telescope').setup({
+            on_attach = function(bufnr)
+                vim.keymap.set('n', '<leader>sS', '<cmd>Telescope lsp_workspace_symbols theme=dropdown<CR>', { buffer = bufnr })
+            end,
+        }) end,
         version = '0.1.6'
     },
 
@@ -98,7 +102,7 @@ require('lazy').setup({
         },
         config = function() require("aerial").setup({
             on_attach = function(bufnr)
-                vim.keymap.set("n", "<leader>an", "<cmd>AerialNavOpen<CR>", { buffer = bufnr })
+                vim.keymap.set("n", "<leader>ss", "<cmd>AerialNavOpen<CR>", { buffer = bufnr })
             end,
         })
         end
@@ -129,6 +133,24 @@ require('lazy').setup({
 
     -- completion
     'neovim/nvim-lspconfig',
+    {
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate",
+        config = function()
+            require("mason").setup()
+        end
+    },
+
+    -- mason-lspconfig
+    {
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+            require("mason-lspconfig").setup({
+                automatic_installation = true,
+            })
+        end
+    },
+
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
