@@ -405,7 +405,7 @@ require('lualine').setup {
         lualine_y = {
             {
                 'diff',
-                symbols = { added = ' ', modified = ' ', removed = ' ' },
+                symbols = { added = '+', modified = '~', removed = '-' },
                 colored = true,
             },
             { 'branch' },
