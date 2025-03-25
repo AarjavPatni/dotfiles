@@ -26,7 +26,7 @@ vim.opt.completeopt	={"menu","menuone","noselect","noinsert","preview"}
 vim.opt.splitbelow	= true
 vim.opt.splitright	= true
 
-vim.opt.background = "light"
+vim.opt.background = "dark"
 
 vim.opt.nu	= true
 vim.opt.rnu	= true

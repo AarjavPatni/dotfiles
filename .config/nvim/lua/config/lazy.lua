@@ -24,13 +24,21 @@ vim.g.maplocalleader = "\\"
 ---
 require('lazy').setup({
 
-    ({
-        'rose-pine/neovim',
-        name = 'rose-pine',
-        config = function ()
-          vim.cmd [[colorscheme rose-pine-moon]]
-        end
-    }),
+    {
+        "rebelot/kanagawa.nvim",
+        config = function()
+            vim.cmd [[set termguicolors]]
+            vim.cmd.colorscheme('kanagawa-dragon')
+        end,
+    },
+
+    --({
+    --    'rose-pine/neovim',
+    --    name = 'rose-pine',
+    --    config = function ()
+    --      vim.cmd [[colorscheme rose-pine-moon]]
+    --    end
+    --}),
 
     {
         'lukas-reineke/indent-blankline.nvim',
