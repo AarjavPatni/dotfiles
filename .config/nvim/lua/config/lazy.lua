@@ -32,11 +32,21 @@ require("lazy").setup({
   install = { colorscheme = { "rose-pine" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
+
+  {
+	  'lukas-reineke/indent-blankline.nvim',
+	  config = function () require("ibl").setup({
+		  indent = {char = "·" },
+		  scope = { enabled = false },
+	  }
+	  ) end
+  },
+
 })
 
--- if not vim.g.vscode then
---   require("config.sets")
---   require('config.remaps')
---   require('config.netrw')
---   require("plugins")
--- end
+if not vim.g.vscode then
+  require("config.sets")
+  require('config.remaps')
+  require('config.netrw')
+  --require("plugins")
+end
