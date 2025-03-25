@@ -116,3 +116,5 @@ esac
 
 # Uncomment to see startup profiling results
 # zprof
+#
+export GITHUB_COPILOT_TOKEN="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"

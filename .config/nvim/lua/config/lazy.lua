@@ -21,38 +21,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Setup lazy.nvim
---require("lazy").setup({
---  spec = {
---  --   -- import your plugins
---  --   { import = "plugins" },
---   },
---  -- Configure any other settings here. See the documentation for more details.
---  -- colorscheme that will be used when installing plugins.
---  --install = { colorscheme = { "rose-pine" } },
---  -- automatically check for plugin updates
---  --checker = { enabled = true },
---
---  {
---	  'lukas-reineke/indent-blankline.nvim',
---	  config = function () require("ibl").setup({
---		  indent = {char = "·" },
---		  scope = { enabled = false },
---	  }
---	  ) end
---  },
---
---})
-
-if not vim.g.vscode then
-  require("config.sets")
-  require('config.remaps')
-  require('config.netrw')
-  --require("plugins")
-end
-
-
-
 ---
 require('lazy').setup({
 
@@ -197,111 +165,111 @@ require('lazy').setup({
     },
 
     --copilot
-    {
-        "yetone/avante.nvim",
-        event = "VeryLazy",
-        lazy = false,
-        version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
-        opts = {
-            provider = "copilot",
-            auto_suggestions_provider = "copilot",
-            copilot = {
-                endpoint = "https://api.githubcopilot.com",
-                model = "claude-3.5-sonnet",
-                timeout = 30000, -- Timeout in milliseconds
-                temperature = 0,
-                max_tokens = 4096,
-            },
-            behaviour = {
-                auto_suggestions = true,
-            },
-            build = "make",
-            mappings = {
-                --- @class AvanteConflictMappings
-                diff = {
-                    ours = "co",
-                    theirs = "ct",
-                    all_theirs = "ca",
-                    both = "cb",
-                    cursor = "cc",
-                    next = "]x",
-                    prev = "[x",
-                },
-                suggestion = {
-                    accept = "<C-CR>",
-                    next = "<C-]>",
-                    prev = "<S-C-]>",
-                    dismiss = "<C-0>",
-                },
-                jump = {
-                    next = "]]",
-                    prev = "[[",
-                },
-                submit = {
-                    normal = "<CR>",
-                    insert = "<C-s>",
-                },
-                sidebar = {
-                    apply_all = "A",
-                    apply_cursor = "a",
-                    switch_windows = "<Tab>",
-                    reverse_switch_windows = "<S-Tab>",
-                },
-            },
-            highlights = {
-                ---@type AvanteConflictHighlights
-                diff = {
-                    current = "Visual",
-                    incoming = "Search",
-                }, 
-                diff = {
-                    current = "Visual",
-                    incoming = "Search",
-                },
-                sidebar = {
-                    normal = {
-                        bg = "#e5e1d8",
-                    },
-                },
-            },
-            windows = {
-                ---@type "right" | "left" | "top" | "bottom"
-                position = "right", -- the position of the sidebar
-                wrap = true, -- similar to vim.o.wrap
-                width = 30, -- default % based on available width
-                sidebar_header = {
-                    enabled = false -- true, false to enable/disable the header
-                },
-                input = {
-                    prefix = "> ",
-                    height = 8, -- Height of the input window in vertical layout
-                },
-                ask = {
-                    floating = false, -- Open the 'AvanteAsk' prompt in a floating window
-                    start_insert = true, -- Start insert mode when opening the ask window
-                    border = "none",
-                    ---@type "ours" | "theirs"
-                    focus_on_apply = "theirs", -- which diff to focus after applying
-                },
-            },
-            suggestion = {
-                debounce = 75,
-                throttle = 0,
-            },
-        },
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "stevearc/dressing.nvim",
-            "nvim-lua/plenary.nvim",
-            "MunifTanjim/nui.nvim",
-            --- The below dependencies are optional,
-            "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-            "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-            "zbirenbaum/copilot.lua" -- for providers='copilot'
-        },
-    },
+    ---{
+    ---    "yetone/avante.nvim",
+    ---    event = "VeryLazy",
+    ---    lazy = false,
+    ---    version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+    ---    opts = {
+    ---        provider = "copilot",
+    ---        auto_suggestions_provider = "copilot",
+    ---        copilot = {
+    ---            endpoint = "https://api.githubcopilot.com",
+    ---            model = "claude-3.5-sonnet",
+    ---            timeout = 30000, -- Timeout in milliseconds
+    ---            temperature = 0,
+    ---            max_tokens = 4096,
+    ---        },
+    ---        behaviour = {
+    ---            auto_suggestions = true,
+    ---        },
+    ---        build = "make",
+    ---        mappings = {
+    ---            --- @class AvanteConflictMappings
+    ---            diff = {
+    ---                ours = "co",
+    ---                theirs = "ct",
+    ---                all_theirs = "ca",
+    ---                both = "cb",
+    ---                cursor = "cc",
+    ---                next = "]x",
+    ---                prev = "[x",
+    ---            },
+    ---            suggestion = {
+    ---                accept = "<C-CR>",
+    ---                next = "<C-]>",
+    ---                prev = "<S-C-]>",
+    ---                dismiss = "<C-0>",
+    ---            },
+    ---            jump = {
+    ---                next = "]]",
+    ---                prev = "[[",
+    ---            },
+    ---            submit = {
+    ---                normal = "<CR>",
+    ---                insert = "<C-s>",
+    ---            },
+    ---            sidebar = {
+    ---                apply_all = "A",
+    ---                apply_cursor = "a",
+    ---                switch_windows = "<Tab>",
+    ---                reverse_switch_windows = "<S-Tab>",
+    ---            },
+    ---        },
+    ---        highlights = {
+    ---            ---@type AvanteConflictHighlights
+    ---            diff = {
+    ---                current = "Visual",
+    ---                incoming = "Search",
+    ---            }, 
+    ---            diff = {
+    ---                current = "Visual",
+    ---                incoming = "Search",
+    ---            },
+    ---            sidebar = {
+    ---                normal = {
+    ---                    bg = "#e5e1d8",
+    ---                },
+    ---            },
+    ---        },
+    ---        windows = {
+    ---            ---@type "right" | "left" | "top" | "bottom"
+    ---            position = "right", -- the position of the sidebar
+    ---            wrap = true, -- similar to vim.o.wrap
+    ---            width = 30, -- default % based on available width
+    ---            sidebar_header = {
+    ---                enabled = false -- true, false to enable/disable the header
+    ---            },
+    ---            input = {
+    ---                prefix = "> ",
+    ---                height = 8, -- Height of the input window in vertical layout
+    ---            },
+    ---            ask = {
+    ---                floating = false, -- Open the 'AvanteAsk' prompt in a floating window
+    ---                start_insert = true, -- Start insert mode when opening the ask window
+    ---                border = "none",
+    ---                ---@type "ours" | "theirs"
+    ---                focus_on_apply = "theirs", -- which diff to focus after applying
+    ---            },
+    ---        },
+    ---        suggestion = {
+    ---            debounce = 75,
+    ---            throttle = 0,
+    ---        },
+    ---    },
+    ---    dependencies = {
+    ---        "nvim-treesitter/nvim-treesitter",
+    ---        "stevearc/dressing.nvim",
+    ---        "nvim-lua/plenary.nvim",
+    ---        "MunifTanjim/nui.nvim",
+    ---        --- The below dependencies are optional,
+    ---        "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+    ---        "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+    ---        "zbirenbaum/copilot.lua" -- for providers='copilot'
+    ---    },
+    ---},
 
-    "zbirenbaum/copilot.lua" 
+    ---"zbirenbaum/copilot.lua" 
 })
  
 
