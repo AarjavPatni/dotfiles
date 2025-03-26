@@ -37,7 +37,8 @@ nnoremap("<leader>.", function()
 end)
 
 -- search files
-nnoremap("<leader>f", ":Telescope find_files <CR>")
+nnoremap("<leader>f", ":lua require('telescope.builtin').find_files({ no_ignore = true, hidden = true })<CR>")
+nnoremap("<leader>fh", ":Telescope find_files <CR>")
 nnoremap("<leader>g", ":Telescope live_grep <CR>")
 -- open tele
 nnoremap("<leader>t", ":Telescope <CR>")
