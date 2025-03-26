@@ -95,6 +95,11 @@ require('lazy').setup({
         version = '0.1.6'
     },
 
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make'
+    },
+
     { 'nvim-treesitter/nvim-treesitter', build=':TSUpdate' },
     'nvim-treesitter/nvim-treesitter-context',
     {

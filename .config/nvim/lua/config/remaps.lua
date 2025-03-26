@@ -37,10 +37,12 @@ nnoremap("<leader>.", function()
 end)
 
 -- search files
-nnoremap("<leader>f", ":lua require('telescope.builtin').find_files({ hidden = true })<CR>")
-nnoremap("<leader>fh", ":Telescope find_files <CR>")
-nnoremap("<leader>g", ":Telescope live_grep <CR>")
--- open tele
+nnoremap("<leader>ff", ":Telescope frecency workspace=CWD <CR>")
+nnoremap("<leader>fg", ":Telescope live_grep <CR>")
+nnoremap("<leader>ss", ":Telescope lsp_document_symbols theme=dropdown<CR>")
+nnoremap("<leader>sS", ":Telescope lsp_workspace_symbols theme=dropdown<CR>")
+
+-- open telescope
 nnoremap("<leader>t", ":Telescope <CR>")
 
 -- Reload init.lua

@@ -78,12 +78,28 @@ require('lazy').setup({
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-lua/popup.nvim',
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+            { 'nvim-telescope/telescope-frecency.nvim' }
         },
-        config = function() require('telescope').setup({
-            on_attach = function(bufnr)
-                vim.keymap.set('n', '<leader>sS', '<cmd>Telescope lsp_workspace_symbols theme=dropdown<CR>', { buffer = bufnr })
-            end,
-        }) end,
+        config = function()
+            require('telescope').setup({
+                defaults = {
+                    file_ignore_patterns = { "node_modules", ".git/" },
+                },
+                pickers = {
+                    find_files = {
+                        hidden = true
+                    }
+                },
+                extensions = {
+                    frecency = {
+                        ignore_patterns = {"*.git/*", "*/tmp/*"},
+                    }
+                }
+            })
+            require('telescope').load_extension('fzf')
+            require('telescope').load_extension('frecency')
+        end,
         version = '0.1.6'
     },
 
