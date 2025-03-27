@@ -143,12 +143,7 @@ require('lazy').setup({
             "nvim-treesitter/nvim-treesitter",
             "nvim-tree/nvim-web-devicons"
         },
-        config = function() require("aerial").setup({
-            on_attach = function(bufnr)
-                vim.keymap.set("n", "<leader>ss", "<cmd>AerialNavOpen<CR>", { buffer = bufnr })
-            end,
-        })
-        end
+        config = function() require("aerial").setup() end
     },
 
     -- git

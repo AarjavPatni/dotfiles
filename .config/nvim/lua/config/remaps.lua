@@ -37,10 +37,10 @@ nnoremap("<leader>f.", function()
 end)
 
 -- search files
-nnoremap("<leader>fs", ":Telescope frecency workspace=CWD <CR>")
+nnoremap("<leader>/", ":Telescope frecency workspace=CWD <CR>")
 nnoremap("<leader>fg", ":Telescope live_grep <CR>")
-nnoremap("<leader>ss", ":Telescope lsp_document_symbols theme=dropdown<CR>")
-nnoremap("<leader>sS", ":Telescope lsp_workspace_symbols theme=dropdown<CR>")
+nnoremap("<leader>fs", ":AerialNavOpen <CR>")
+nnoremap("<leader>fS", ":Telescope lsp_workspace_symbols<CR>")
 
 -- open telescope
 nnoremap("<leader>t", ":Telescope <CR>")
