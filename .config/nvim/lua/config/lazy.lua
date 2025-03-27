@@ -337,5 +337,24 @@ require('lazy').setup({
     ---    },
     ---},
 
-    ---"zbirenbaum/copilot.lua" 
+    ---"zbirenbaum/copilot.lua"
+
+    {
+        'apple/pkl-neovim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        config = function() 
+            local hasConfigs, configs = pcall(require, "nvim-treesitter.configs")
+            if hasConfigs then
+                configs.setup {
+                    ensure_installed = "pkl",
+                    highlight = {
+                        enable = true,
+                    },
+                    indent = {
+                        enable = true
+                    }
+                }
+            end
+        end
+    },
 })
