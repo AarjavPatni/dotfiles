@@ -28,16 +28,27 @@ require('lazy').setup({
         "rebelot/kanagawa.nvim",
         config = function()
             vim.cmd.colorscheme('kanagawa')
+            vim.cmd [[set termguicolors]]
         end,
     },
 
-    --({
-    --    'rose-pine/neovim',
-    --    name = 'rose-pine',
-    --    config = function ()
-    --      vim.cmd [[colorscheme rose-pine-moon]]
-    --    end
-    --}),
+    ({
+        'rose-pine/neovim',
+        name = 'rose-pine'
+    }),
+
+    {
+        'folke/twilight.nvim',
+        config = function() require('twilight').setup() end
+    },
+
+    {
+        'nvim-telescope/telescope-frecency.nvim'
+    },
+
+    {
+        'Vigemus/iron.nvim'
+    },
 
     {
         'lukas-reineke/indent-blankline.nvim',
@@ -332,13 +343,3 @@ require('lazy').setup({
 
     ---"zbirenbaum/copilot.lua" 
 })
- 
-
-
-
-
-
-
-
-
-

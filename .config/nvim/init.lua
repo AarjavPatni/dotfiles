@@ -7,5 +7,4 @@ if not vim.g.vscode then
   require('plugins.nvim-cmp')
   require('plugins.treesitter')
   require('plugins.lualine')
-  --require("plugins")
 end
