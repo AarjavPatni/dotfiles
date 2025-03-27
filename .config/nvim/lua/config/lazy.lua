@@ -42,9 +42,7 @@ require('lazy').setup({
         config = function() require('twilight').setup() end
     },
 
-    {
-        'nvim-telescope/telescope-frecency.nvim'
-    },
+    'nvim-telescope/telescope-frecency.nvim',
 
     {
         'Vigemus/iron.nvim'
@@ -120,6 +118,9 @@ require('lazy').setup({
                     },
                     frecency = {
                         ignore_patterns = {"*.git/*", "*/tmp/*"},
+                        auto_validate = true,
+                        db_validate_threshold = 1,
+                        db_safe_mode = false,
                     }
                 }
             })
