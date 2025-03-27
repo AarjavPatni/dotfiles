@@ -32,7 +32,7 @@ nnoremap("<leader>d", "\"_d")
 vnoremap("<leader>d", "\"_d")
 
 -- search dotfiles
-nnoremap("<leader>.", function()
+nnoremap("<leader>f.", function()
     require('plugins.telescope').search_dotfiles()
 end)
 
