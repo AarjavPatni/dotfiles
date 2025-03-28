@@ -94,7 +94,13 @@ require('lazy').setup({
             require('telescope').setup({
                 defaults = {
                     file_ignore_patterns = { "node_modules", ".git/" },
-                    path_display = { "truncate" }
+                    path_display = { "truncate" },
+                    mappings = {
+                        i = {
+                            ["<C-j>"] = require("telescope.actions").cycle_history_prev,
+                            ["<C-k>"] = require("telescope.actions").cycle_history_next,
+                        },
+                    }
                 },
                 pickers = {
                     find_files = {
