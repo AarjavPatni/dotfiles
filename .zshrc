@@ -126,3 +126,4 @@ esac
 # zprof
 #
 export GITHUB_COPILOT_TOKEN="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"
+export ERL_AFLAGS="-kernel shell_history enabled"
