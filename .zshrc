@@ -16,6 +16,8 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line
 
+bindkey '^O' forward-char
+
 eval "$(starship init zsh)"
 
 if [[ -n $SSH_CONNECTION ]]; then
