@@ -198,6 +198,12 @@ alt-comma = 'focus-monitor prev'
 alt-shift-period = 'move-workspace-to-monitor next'
 alt-shift-comma = 'move-workspace-to-monitor prev'
 
+[[on-window-detected]]
+if.app-id="com.mitchellh.ghostty"
+run= [
+  "layout tiling",
+]
+
 # Cmd+Tab Replacement
 cmd-tab = 'focus-back-and-forth'
 
