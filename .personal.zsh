@@ -7,6 +7,7 @@ function resume-update {
 }
 
 alias ghar-ssh="ssh ghar@ghar-server"
+alias ghar-mosh="mosh ghar@ghar-server"
 alias uw-ssh="ssh -Y a3patni@linux.student.cs.uwaterloo.ca"
 
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
