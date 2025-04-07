@@ -12,4 +12,4 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 
-scrollback-limit = 50000
+scrollback-limit = 60000000
