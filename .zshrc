@@ -24,9 +24,6 @@ else
   export EDITOR='nvim'
 fi
 
-FUNCNEST=100
-set -o vi
-
 # Completion system
 autoload -Uz compinit
 if [[ -n ${ZDOTDIR}/.zcompdump && -n $(find ${ZDOTDIR}/.zcompdump -mtime +1 2>/dev/null) ]]; then
