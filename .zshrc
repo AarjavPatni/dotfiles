@@ -24,6 +24,7 @@ else
   export EDITOR='nvim'
 fi
 
+FUNCNEST=100
 set -o vi
 
 # Completion system
