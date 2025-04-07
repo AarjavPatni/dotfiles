@@ -13,6 +13,7 @@ alias vim="nvim"
 alias v=nvim
 alias v.="nvim ."
 alias nv="nvim"
+alias bat="batcat"
 alias cat="bat -pp"
 alias success='osascript -e '\''display notification "Your command ran successfully." with title "Success"'\'''
 alias zc='nvim ~/.local/share/chezmoi/dot_zshrc.tmpl'
