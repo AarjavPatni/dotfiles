@@ -1,0 +1,15 @@
+# Font configuration
+font-family = "Iosevka Term"
+font-size = 15
+font-feature = "liga" # For ASCII ligatures
+
+# Styling
+theme = "Abernathy"
+window-padding-x = 6
+window-theme = dark
+macos-titlebar-style = tabs
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+scrollback-limit = 50000
