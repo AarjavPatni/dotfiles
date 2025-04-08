@@ -14,15 +14,9 @@ dot_id="$HOME/.dot_id"
 echo -e "\nDeleting existing machine-specific config files...\n"
 find "$HOME" -maxdepth 1 -type f -name ".*\.zsh" ! -name ".${machine_alias}.zsh" ! -name ".aliases.zsh" ! -name ".zshrc" | while read -r file; do
   if [[ -f "$file" ]]; then
-    printf "Delete %s? (Y/n) " "$file"
-    read -r confirm </dev/tty
-    if [[ "$confirm" =~ ^[Nn]$ ]]; then
-      echo "❌ $file"
-    else
-      git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" update-index --assume-unchanged "$file"
-      rm -f "$file"
-      echo "🗑️ $file"
-    fi
+    git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" update-index --assume-unchanged "$file"
+    rm -f "$file"
+    echo "🗑️ $file"
   fi
 done
 
@@ -51,13 +45,16 @@ if [[ "$run_init" =~ ^[Yy]$ ]]; then
   "$HOME/init-system.sh" "$machine_alias"
 fi
 
+# Configure git to track machine-specific brewfile
 git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" add "$machine_alias.brewfile"
 git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" commit -m "Add machine-specific config: $machine_alias"
 
 # Delete all other brewfiles other than core.brewfile and machine-specific brewfile
-for file in "$HOME"/*.brewfile; do
-  if [[ "$file" != "$HOME/core.brewfile" && "$file" != "$HOME/$machine_alias.brewfile" ]]; then
+find "$HOME" -maxdepth 1 -type f -name ".${machine_alias}.brewfile" ! -name ".core.brewfile" | while read -r file; do
+  if [[ -f "$file" ]]; then
+    git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" update-index --assume-unchanged "$file"
     rm -f "$file"
+    echo "🗑️ $file"
   fi
 done
 
