@@ -1,4 +1,0 @@
-nnoremap ; :
-vnoremap ; :
-
-syntax on

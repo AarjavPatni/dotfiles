@@ -1,0 +1,26 @@
+# CLI Tools
+brew "ffmpeg"
+
+# Languages
+brew "node"
+brew "pnpm"
+brew "rustup"
+brew "elixir"
+brew "elixir-ls"
+
+# Apps
+cask "ableton-live-intro"
+cask "anki"
+cask "audacity"
+cask "discord"
+cask "microsoft-teams"
+cask "obsidian"
+cask "readdle-spark"
+cask "stremio"
+cask "tailscale"
+cask "whatsapp"
+cask "zoom"
+
+mas "Craft", id: 1487937127
+mas "Goodnotes", id: 1444383602
+mas "Microsoft OneNote", id: 784801555

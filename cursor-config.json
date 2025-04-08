@@ -1,0 +1,9 @@
+{
+    "window.commandCenter": 1,
+    "workbench.colorTheme": "Default Dark Modern",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 100,
+    "editor.fontFamily": "'Iosevka Term'",
+    "editor.fontLigatures": false,
+    "editor.fontSize": 14
+}

@@ -40,6 +40,20 @@ echo -e "\nMachine configuration has been set up!"
 echo "✅ Machine alias: $machine_alias"
 echo "✅ Configuration files created:"
 echo -e "  - Machine ID: $dot_id"
-echo -e "  - Machine-specific config: $machine_config"
-echo ""
+echo -e "  - Machine-specific config: $machine_config\n"
 echo "Please add your machine-specific configurations to: $machine_config"
+
+# Run init-system.sh upon prompt
+read -p "Run init-system.sh? (y/N) " run_init
+if [[ "$run_init" =~ ^[Yy]$ ]]; then
+  "$HOME/init-system.sh" "$machine_alias"
+fi
+
+# Delete all other brewfiles other than core.brewfile and machine-specific brewfile
+for file in "$HOME"/*.brewfile; do
+  if [[ "$file" != "$HOME/core.brewfile" && "$file" != "$HOME/$machine_alias.brewfile" ]]; then
+    rm -f "$file"
+  fi
+done
+
+echo "✅ Machine setup complete!"

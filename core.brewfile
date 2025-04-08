@@ -1,0 +1,50 @@
+# Taps
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+tap "homebrew/services"
+tap "nikitabobko/tap"
+
+# Fonts
+cask "font-jetbrains-mono"
+cask "font-iosevka"
+
+# Dev Stuff
+brew "autojump"
+brew "emacs"
+brew "fd"
+brew "fzf"
+brew "gh"
+brew "lazygit"
+brew "neofetch"
+brew "neovim"
+brew "ripgrep"
+brew "starship"
+brew "thefuck"
+brew "tldr"
+brew "tmux"
+brew "tree"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+cask "cursor"
+cask "aerospace"
+
+# Apps
+cask "1password"
+cask "notion"
+cask "raycast"
+cask "shottr"
+cask "logi-options+"
+cask "zen-browser"
+cask "slack"
+
+mas "Amphetamine", id: 937984704
+mas "Hidden Bar", id: 1452453066
+mas "HyperFocus 2", id: 1621523525
+
+# Cursor Extensions
+cursor "JakeBecker.elixir-ls"
+cursor "sleistner.vscode-fileutils"
+cursor "aaron-bond.better-comments"
+cursor "formulahendry.code-runner"
+cursor "eamodio.gitlens"
+cursor "ms-vscode-remote.remote-containers"
