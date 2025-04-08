@@ -27,7 +27,7 @@ find "$HOME" -maxdepth 1 -type f -name ".*\.zsh" ! -name ".${machine_alias}.zsh"
 done
 
 # Create empty machine-specific config file if it doesn't exist
-touch "$machine_config"
+[[ -f "$machine_config" ]] || touch "$machine_config"
 
 # Save machine identifier
 echo "$machine_alias" >"$dot_id"
@@ -46,8 +46,13 @@ echo "Please add your machine-specific configurations to: $machine_config"
 # Run init-system.sh upon prompt
 read -p "Run init-system.sh? (y/N) " run_init
 if [[ "$run_init" =~ ^[Yy]$ ]]; then
+  # create a brewfile if it's not already there
+  [[ ! -f "$HOME/$machine_alias.brewfile" ]] || touch "$HOME/$machine_alias.brewfile"
   "$HOME/init-system.sh" "$machine_alias"
 fi
+
+git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" add "$machine_alias.brewfile"
+git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" commit -m "Add machine-specific config: $machine_alias"
 
 # Delete all other brewfiles other than core.brewfile and machine-specific brewfile
 for file in "$HOME"/*.brewfile; do

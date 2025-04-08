@@ -8,7 +8,6 @@ alias ll='ls -l'
 alias ls='ls --color=auto'
 alias mv='mv -iv'
 alias rm='rm -i'
-alias clear="clear && printf '\e[3J'"
 alias vim="nvim"
 alias v=nvim
 alias v.="nvim ."
