@@ -81,11 +81,10 @@ if [[ "$open_casks" =~ ^[Yy]$ ]]; then
     fi
 
     if [ -n "$found_path" ]; then
-      echo "Opening $found_path..."
-      for path in "$found_path"; do
+      echo "Opening paths..."
+      find /Applications -maxdepth 1 -iname "*${app}*.app" 2>/dev/null | while read -r path; do
         echo "new $path"
       done
-      break
     fi
   done
 
