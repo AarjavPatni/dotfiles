@@ -1,3 +1,8 @@
+brew "node"
+brew "pnpm"
+brew "elixir"
+brew "elixir-ls"
+
 cask "linear-linear"
 cask "granola"
 cask "lens"
