@@ -2,6 +2,7 @@ brew "node"
 brew "pnpm"
 brew "elixir"
 brew "elixir-ls"
+brew "pkl"
 
 cask "linear-linear"
 cask "granola"
