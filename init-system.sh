@@ -49,17 +49,15 @@ EOF
 
 read -p "Would you like to generate SSH keys for GitHub? (y/n): " generate_ssh
 
-if [[ $generate_ssh == "y" || $generate_ssh == "Y" ]]; then
+if [[ ${generate_ssh^^} == "Y" ]]; then
     echo "Generating SSH key..."
     ssh-keygen -t ed25519 -C "$git_email" -f "$HOME/.ssh/id_ed25519" -N ""
     eval "$(ssh-agent -s)"
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519
     
-    echo -e "\n✅ SSH key generated. Please copy the following public key and add it to your GitHub account at https://github.com/settings/keys:"
-    cat ~/.ssh/id_ed25519.pub
+    ~/.ssh/id_ed25519.pub | pbcopy
+    echo -e "\n✅ SSH key generated and copied to clipboard. Paste it at https://github.com/settings/keys. Waiting for confirmation..."
     read
 fi
 
-
 echo "✅ Git configured \n"
-
