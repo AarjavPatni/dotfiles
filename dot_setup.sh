@@ -43,6 +43,8 @@ echo "  - Machine ID: $dot_id"
 echo "  - Machine-specific config: $machine_config\n"
 echo "Please add your machine-specific configurations to: $machine_config"
 
+source "$HOME/.zshrc"
+
 # Run init-system.sh upon prompt
 read -p "Run init-system.sh? (y/N) " run_init
 if [[ "$run_init" =~ ^[Yy]$ ]]; then
