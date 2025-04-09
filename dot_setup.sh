@@ -41,7 +41,7 @@ echo "Please add your machine-specific configurations to: $machine_config"
 read -p "Run init-system.sh? (y/N) " run_init
 if [[ "$run_init" =~ ^[Yy]$ ]]; then
   [[ ! -f "$HOME/$machine_alias.brewfile" ]] || touch "$HOME/$machine_alias.brewfile"
-  sh "$HOME/init-system.sh" "$machine_alias"
+  /bin/bash "$HOME/init-system.sh" "$machine_alias"
 fi
 
 # Configure git to track machine-specific brewfile
