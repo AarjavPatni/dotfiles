@@ -29,10 +29,11 @@ defaults write -g InitialKeyRepeat -int 15
 echo "Installing Homebrew packages..."
 brew bundle --file="$HOME/core.brewfile"
 brew bundle --file="$HOME/$machine_alias.brewfile"
+echo "✅ Homebrew packages installed."
 
 if grep -q "cursor" "$HOME/core.brewfile" || grep -q "cursor" "$HOME/$machine_alias.brewfile"; then
-    mv -f "$HOME/cursor-config.json" "$HOME/Library/Application\ Support/Cursor/User/settings.json"
+    mkdir -p "$HOME/Library/Application Support/Cursor/User"
     ln -s "$HOME/cursor-config.json" "$HOME/Library/Application\ Support/Cursor/User/settings.json"
-    echo "\nCursor successfully configured."
+    echo "\n✅ Cursor successfully configured.\n\n"
 fi
 
