@@ -29,6 +29,7 @@ defaults write -g InitialKeyRepeat -int 15
 echo "Installing Homebrew packages..."
 brew bundle --file="$HOME/core.brewfile"
 brew bundle --file="$HOME/$machine_alias.brewfile"
+pipx install fastask
 echo "✅ Homebrew packages installed."
 
 if grep -q "cursor" "$HOME/core.brewfile" || grep -q "cursor" "$HOME/$machine_alias.brewfile"; then
@@ -60,4 +61,12 @@ if [[ ${generate_ssh^^} == "Y" ]]; then
     read
 fi
 
-echo "✅ Git configured \n"
+echo "✅ Git configured\n"
+
+echo "✅ Machine initialized!"
+
+# Disable cmd+space hotkey for Raycast
+echo "Please disable cmd+space hotkey from System Preferences"
+
+# open system preferences app
+
