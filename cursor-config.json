@@ -1,11 +1,73 @@
 {
-    "window.commandCenter": 1,
-    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.productIconTheme": "fluent-icons",
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 100,
-    "editor.fontFamily": "'Iosevka Term'",
-    "editor.fontLigatures": false,
-    "editor.fontSize": 14,
+    "editor.fontFamily": "'Iosevka Term', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 15,
     "git.enableSmartCommit": true,
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "git.ignoreRebaseWarning": true,
+    "code-runner.clearPreviousOutput": true,
+    "explorer.confirmDelete": false,
+    "terminal.integrated.scrollback": 10000,
+    "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+    "vim.enableNeovim": true,
+    "vim.neovimUseConfigFile": true,
+    "vim.neovimConfigPath": "~/.config/nvim/init.vim",
+    "vim.smartRelativeLine": true,
+    "files.associations": {
+        "*.tmpl": "shellscript",
+        "*.brewfile": "ruby"
+    },
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ]
 }
