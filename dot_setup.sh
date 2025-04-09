@@ -67,13 +67,31 @@ done
 echo "🎉 Machine setup complete!"
 
 # Ask the user if they want to open all the casks installed from core and machine-specific brewfiles
-read -p "Open all installed casks? (y/N) " open_casks
+read -p "\nOpen all installed casks? (y/N) " open_casks
 if [[ "$open_casks" =~ ^[Yy]$ ]]; then
-  echo "Opening installed casks..."
-  brew list --cask | while read -r cask; do
-    open "/Applications/$cask.app"
+  brew_apps=$(brew list --cask 2>/dev/null)
+  for app in $brew_apps; do
+    app_name=$(echo "$app" | sed 's/^.*\///')
+    possible_paths=(
+        "/Applications/${app_name}.app"
+        "/Applications/${app}.app"
+        "/Applications/${app_name}"
+    )
+    for path in "${possible_paths[@]}"; do
+        if [ -d "$path" ]; then
+            echo "Found: $path"
+            found=true
+            found_count=$((found_count + 1))
+            break
+        fi
+    done
+    
+    if [ "$found" = false ]; then
+        echo "Couldn't find Homebrew app: $app"
+    fi
   done
   echo "✅ All installed casks opened."
-else
-  echo "Skipping opening installed casks."
 fi
+
+echo "Don't forget to import the Raycast config!"
+
