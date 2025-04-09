@@ -3,6 +3,24 @@
 # Get machine alias
 machine_alias=$1
 
+# Disable cmd+space hotkey for Raycast
+defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64 "
+  <dict>
+    <key>enabled</key><false/>
+    <key>value</key><dict>
+      <key>type</key><string>standard</string>
+      <key>parameters</key>
+      <array>
+        <integer>32</integer>
+        <integer>49</integer>
+        <integer>1048576</integer>
+      </array>
+    </dict>
+  </dict>
+"
+
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+
 # Caps -> Control
 defaults write com.apple.keyboard.modifiermapping.1452-630-0 -array-add '{"HIDKeyboardModifierMappingSrc"=0x700000039;"HIDKeyboardModifierMappingDst"=0x7000000E0;}'
 
@@ -64,9 +82,3 @@ fi
 echo "✅ Git configured\n"
 
 echo "✅ Machine initialized!"
-
-# Disable cmd+space hotkey for Raycast
-echo "Please disable cmd+space hotkey from System Preferences"
-
-# open system preferences app
-
