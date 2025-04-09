@@ -65,3 +65,15 @@ find "$HOME" -maxdepth 1 -type f -name ".${machine_alias}.brewfile" ! -name ".co
 done
 
 echo "🎉 Machine setup complete!"
+
+# Ask the user if they want to open all the casks installed from core and machine-specific brewfiles
+read -p "Open all installed casks? (y/N) " open_casks
+if [[ "$open_casks" =~ ^[Yy]$ ]]; then
+  echo "Opening installed casks..."
+  brew list --cask | while read -r cask; do
+    open "/Applications/$cask.app"
+  done
+  echo "✅ All installed casks opened."
+else
+  echo "Skipping opening installed casks."
+fi
