@@ -81,10 +81,10 @@ if [[ "$open_casks" =~ ^[Yy]$ ]]; then
 
       if [ -n "$found_paths" ]; then
         echo "Found app(s) for cask: $app"
-        while IFS= read -r path; do
-          echo "Opening $path..."
 
-        done
+        echo "Opening $path..."
+
+
       else
         echo "No app found for cask: $app"
       fi
