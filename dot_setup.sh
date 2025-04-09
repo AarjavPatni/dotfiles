@@ -89,8 +89,8 @@ if [[ "$open_casks" =~ ^[Yy]$ ]]; then
     if [ "$found" = false ]; then
         echo "Couldn't find Homebrew app: $app"
     else
-        echo "Opening $app..."
-        open "$path"
+        echo "$path..."
+        # open "$path"
         found=false
     fi
   done
