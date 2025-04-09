@@ -43,6 +43,13 @@ defaults write -g InitialKeyRepeat -int 15
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+# Setup Homebrew
+echo >> /Users/aarjav/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/aarjav/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+source "$HOME/.zshrc"
+
 # Run Brewfiles
 echo "Installing Homebrew packages..."
 brew bundle --file="$HOME/core.brewfile"
