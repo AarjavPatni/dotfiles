@@ -88,6 +88,10 @@ if [[ "$open_casks" =~ ^[Yy]$ ]]; then
     
     if [ "$found" = false ]; then
         echo "Couldn't find Homebrew app: $app"
+    else
+        echo "Opening $app..."
+        open "$path"
+        found=false
     fi
   done
   echo "✅ All installed casks opened."
