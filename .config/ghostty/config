@@ -5,7 +5,7 @@ font-feature = "liga" # For ASCII ligatures
 
 # Styling
 theme = "Abernathy"
-window-padding-x = 6
+window-padding-x = 5
 window-theme = dark
 macos-titlebar-style = tabs
 cursor-style = block
