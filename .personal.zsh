@@ -1,5 +1,5 @@
 function resume-update {
-  cp -f ~/Documents/Coop/Resume/Aarjav_Patni_resume.pdf ~/Documents/Programming/aarjavpatni.me/public/Aarjav_Patni_resume.pdf
+  cp -f ~/Documents/Coop/Resume/Aarjav_Patni_resume.pdf ~/Documents/Programming/aarjav.xyz/public/Aarjav_Patni_resume.pdf
   cd ~/Documents/Programming/aarjavpatni.me/
   git add public/Aarjav_Patni_resume.pdf
   git commit -m "Update resume"
