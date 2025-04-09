@@ -56,7 +56,7 @@ git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" add "$machine_alias.brewfil
 git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" commit -m "Add machine-specific config: $machine_alias"
 
 # Delete all other brewfiles other than core.brewfile and machine-specific brewfile
-find "$HOME" -maxdepth 1 -type f -name ".${machine_alias}.brewfile" ! -name ".core.brewfile" | while read -r file; do
+find "$HOME" -maxdepth 1 -type f -name "*.brewfile" ! -name "core.brewfile" ! -name "${machine_alias}.brewfile" | while read -r file; do
   if [[ -f "$file" ]]; then
     git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" update-index --assume-unchanged "$file"
     rm -f "$file"
