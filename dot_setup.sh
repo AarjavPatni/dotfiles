@@ -69,17 +69,32 @@ echo "🎉 Machine setup complete!"
 # Ask the user if they want to open all the casks installed from core and machine-specific brewfiles
 read -p "\nOpen all installed casks? (y/N) " open_casks
 if [[ "$open_casks" =~ ^[Yy]$ ]]; then
-  brew_apps=$(brew list --cask 2>/dev/null)
-  for app in $brew_apps; do
-    found_path=$(fd $app /Applications -d 1)
+brew_apps=$(brew list --cask 2>/dev/null)
+found=false
 
-    if [ -n "$found_path" ]; then
-      echo "Found: $found_path"
-      found=true
-    else
-      echo "Couldn't find Homebrew app: $app"
+# Loop through each app
+for app in $(brew list --cask); do
+  found_path=$(find /Applications -maxdepth 1 -iname "*${app}*.app" 2>/dev/null)
+
+  if [ -z "$found_path" ]; then
+    first_part=$(echo "$app" | cut -d'-' -f1)
+    if [[ "$app" == *-* ]]; then
+      found_path=$(find /Applications -maxdepth 1 -iname "*${first_part}*.app" 2>/dev/null)
     fi
-  done
+  fi
+
+  if [ -n "$found_path" ]; then
+    echo "Found: $app -> $found_path"
+  else
+    echo "Couldn't find Homebrew app: $app"
+  fi
+done
+
+
+if [ "$found" = false ]; then
+  echo "No Homebrew apps were found in the Applications folder."
+fi
+
 
   echo "✅ All installed casks opened."
 fi
