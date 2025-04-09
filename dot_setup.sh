@@ -70,19 +70,11 @@ echo "🎉 Machine setup complete!"
 read -p "\nOpen all installed casks? (y/N) " open_casks
 if [[ "$open_casks" =~ ^[Yy]$ ]]; then
   for app in $(brew list --cask); do
-    app="google-chrome"
-    found_path=$(find /Applications -maxdepth 1 -iname "*${app}*.app" 2>/dev/null)
-
-    if [ -z "$found_path" ]; then
-      second_part=$(echo "$app" | cut -d'-' -f2)
-      if [[ "$app" == *-* ]]; then
-        found_path=$(find /Applications -maxdepth 1 -iname "*${second_part}*.app" 2>/dev/null)
-      fi
-    fi
+    search_term=$(echo "$app" | tr '-' ' ')
+    found_path=$(find /Applications -maxdepth 1 -iname "*${search_term}*.app" 2>/dev/null)
 
     if [ -n "$found_path" ]; then
       echo "Opening $found_path..."
-      break
     fi
   done
 
