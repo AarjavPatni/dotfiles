@@ -42,9 +42,9 @@ mas "Hidden Bar", id: 1452453066
 mas "HyperFocus 2", id: 1621523525
 
 # Cursor Extensions
-cursor "JakeBecker.elixir-ls"
-cursor "sleistner.vscode-fileutils"
-cursor "aaron-bond.better-comments"
-cursor "formulahendry.code-runner"
-cursor "eamodio.gitlens"
-cursor "ms-vscode-remote.remote-containers"
+# cursor "JakeBecker.elixir-ls"
+# cursor "sleistner.vscode-fileutils"
+# cursor "aaron-bond.better-comments"
+# cursor "formulahendry.code-runner"
+# cursor "eamodio.gitlens"
+# cursor "ms-vscode-remote.remote-containers"
