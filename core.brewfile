@@ -1,7 +1,4 @@
 # Taps
-tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/services"
 tap "nikitabobko/tap"
 
 # Fonts
