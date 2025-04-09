@@ -69,5 +69,6 @@
             "bold": false,
             "italic": false
         }
-    ]
+    ],
+    "window.commandCenter": 1
 }
