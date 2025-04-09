@@ -62,7 +62,7 @@ alias tfiaa='terraform init && terraform apply -auto-approve'
 
 # MacOS specific
 if [[ "$(uname)" == "Darwin" ]]; then
-  alias upgrade-all='brew update && brew upgrade && brew cleanup && brew autoremove'
+  alias upgrade-all='brew update && brew upgrade && brew cleanup && brew autoremove && brew doctor'
   alias bi='brew install'
   alias bu='brew uninstall'
   alias bri='brew reinstall'
