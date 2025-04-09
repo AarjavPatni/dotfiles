@@ -27,6 +27,7 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 cask "cursor"
 cask "aerospace"
+cask "orbstack"
 
 # Apps
 cask "1password"
