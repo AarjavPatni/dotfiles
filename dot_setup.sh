@@ -71,18 +71,16 @@ read -p "\nOpen all installed casks? (y/N) " open_casks
 if [[ "$open_casks" =~ ^[Yy]$ ]]; then
   brew_apps=$(brew list --cask 2>/dev/null)
   for app in $brew_apps; do
-    app_name=$(echo "$app" | sed 's/^.*\///')
-    if [ -d "/Applications/${app_name}.app" ]; then
-        echo "Found: $path"
-        found=true
-        found_count=$((found_count + 1))
-        break
-    fi
-    
-    if [ "$found" = false ]; then
-        echo "Couldn't find Homebrew app: $app"
+    found_path=$(fd $app /Applications -d 1)
+
+    if [ -n "$found_path" ]; then
+      echo "Found: $found_path"
+      found=true
+    else
+      echo "Couldn't find Homebrew app: $app"
     fi
   done
+
   echo "✅ All installed casks opened."
 fi
 
