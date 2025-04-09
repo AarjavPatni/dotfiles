@@ -33,7 +33,7 @@ echo "✅ Homebrew packages installed."
 
 if grep -q "cursor" "$HOME/core.brewfile" || grep -q "cursor" "$HOME/$machine_alias.brewfile"; then
     mkdir -p "$HOME/Library/Application Support/Cursor/User"
-    ln -s "$HOME/cursor-config.json" "$HOME/Library/Application\ Support/Cursor/User/settings.json"
+    ln -sf "$HOME/cursor-config.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
     echo "\n✅ Cursor successfully configured.\n\n"
 fi
 
