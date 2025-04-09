@@ -74,7 +74,7 @@ if [[ "$open_casks" =~ ^[Yy]$ ]]; then
     found_path=$(find /Applications -maxdepth 1 -iname "*${app}*.app" 2>/dev/null)
 
     if [ -z "$found_path" ]; then
-      first_part=$(echo "$app" | cut -d'-' -f1)
+      first_part=${app%%-*}
       if [[ "$app" == *-* ]]; then
         found_path=$(find /Applications -maxdepth 1 -iname "*${first_part}*.app" 2>/dev/null)
       fi
