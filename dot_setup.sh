@@ -3,8 +3,14 @@
 echo "Welcome to machine setup!"
 echo "------------------------"
 
-# Prompt for machine alias
-read -p "Enter machine alias: " machine_alias
+# Prompt for machine alias with confirmation
+while true; do
+    read -p "Enter machine alias: " machine_alias
+    read -p "You entered '$machine_alias'. Is this correct? (y/n): " confirm
+    if [[ "$confirm" =~ ^[Yy]$ ]]; then
+        break
+    fi
+done
 
 # Define config file paths
 machine_config="$HOME/.${machine_alias}.zsh"
@@ -58,4 +64,4 @@ find "$HOME" -maxdepth 1 -type f -name ".${machine_alias}.brewfile" ! -name ".co
   fi
 done
 
-echo "✅ Machine setup complete!"
+echo "🎉 Machine setup complete!"
