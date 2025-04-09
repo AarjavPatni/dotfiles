@@ -72,26 +72,15 @@ if [[ "$open_casks" =~ ^[Yy]$ ]]; then
   brew_apps=$(brew list --cask 2>/dev/null)
   for app in $brew_apps; do
     app_name=$(echo "$app" | sed 's/^.*\///')
-    possible_paths=(
-        "/Applications/${app_name}.app"
-        "/Applications/${app}.app"
-        "/Applications/${app_name}"
-    )
-    for path in "${possible_paths[@]}"; do
-        if [ -d "$path" ]; then
-            echo "Found: $path"
-            found=true
-            found_count=$((found_count + 1))
-            break
-        fi
-    done
+    if [ -d "/Applications/${app_name}.app" ]; then
+        echo "Found: $path"
+        found=true
+        found_count=$((found_count + 1))
+        break
+    fi
     
     if [ "$found" = false ]; then
         echo "Couldn't find Homebrew app: $app"
-    else
-        echo "$path..."
-        # open "$path"
-        found=false
     fi
   done
   echo "✅ All installed casks opened."
