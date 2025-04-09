@@ -38,6 +38,7 @@ cask "shottr"
 cask "logi-options+"
 cask "zen-browser"
 cask "slack"
+cask "bambu-studio"
 
 mas "Amphetamine", id: 937984704
 mas "Hidden Bar", id: 1452453066
