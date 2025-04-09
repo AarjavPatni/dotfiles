@@ -82,7 +82,7 @@ if [[ "$open_casks" =~ ^[Yy]$ ]]; then
 
     if [ -n "$found_path" ]; then
       echo "Opening $found_path..."
-      for path in $found_path; do
+      for path in "$found_path"; do
         echo "new $path"
       done
       break
