@@ -70,5 +70,6 @@
             "italic": false
         }
     ],
-    "window.commandCenter": 1
+    "window.commandCenter": 1,
+    "editor.accessibilitySupport": "off"
 }
