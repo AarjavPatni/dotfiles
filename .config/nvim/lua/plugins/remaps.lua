@@ -28,6 +28,7 @@ xnoremap("<leader>p", "\"_dP")
 -- delete stuff without losing stuff in d register
 nnoremap("<leader>d", "\"_d")
 vnoremap("<leader>d", "\"_d")
+nnoremap("<leader>dd", "\"_dd")
 
 -- search dots
 nnoremap("<leader>fp", function()
