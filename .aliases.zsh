@@ -11,6 +11,7 @@ alias rm='rm -i'
 alias vim="nvim"
 alias v=nvim
 alias v.="nvim ."
+alias vd="nvim ~/.config/nvim/"
 alias nv="nvim"
 alias cat="bat -pp"
 alias success='osascript -e '\''display notification "Your command ran successfully." with title "Success"'\'''
