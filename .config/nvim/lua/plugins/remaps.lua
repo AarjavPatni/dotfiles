@@ -26,9 +26,12 @@ vim.g.maplocalleader = "m"
 xnoremap("<leader>p", "\"_dP")
 
 -- delete stuff without losing stuff in d register
-nnoremap("<leader>d", "\"_d")
-vnoremap("<leader>d", "\"_d")
-nnoremap("<leader>dd", "\"_dd")
+nnoremap("d", "\"_d")
+nnoremap("dd", "\"_dd")
+nnoremap("D", "\"_D")
+vnoremap("d", "\"_d")
+vnoremap("dd", "\"_dd")
+vnoremap("D", "\"_D")
 
 -- search dots
 nnoremap("<leader>fp", function()
