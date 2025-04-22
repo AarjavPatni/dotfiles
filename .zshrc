@@ -71,7 +71,7 @@ check_dot_status() {
 
     # Update the nvim submodule reference
     dot submodule update --remote --rebase &>/dev/null
-    dot add .config/nvim
+    dot add ~/.config/nvim
     dot commit -am "Update nvim submodule reference" &>/dev/null
 
     if dot pull --rebase &>/dev/null; then
