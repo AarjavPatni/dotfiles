@@ -25,13 +25,17 @@ vim.g.maplocalleader = "m"
 -- paste over highlight without losing stuff in d register
 xnoremap("<leader>p", "\"_dP")
 
--- delete stuff without losing stuff in d register
-nnoremap("d", "\"_d")
+-- make default dd and D delete without copying to register
 nnoremap("dd", "\"_dd")
 nnoremap("D", "\"_D")
 vnoremap("d", "\"_d")
-vnoremap("dd", "\"_dd")
 vnoremap("D", "\"_D")
+
+-- map leader versions to original functionality that copies to register
+nnoremap("<leader>dd", "dd")
+nnoremap("<leader>D", "D")
+vnoremap("<leader>d", "d")
+vnoremap("<leader>D", "D")
 
 -- search dots
 nnoremap("<leader>fp", function()
