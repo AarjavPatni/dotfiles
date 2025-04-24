@@ -83,6 +83,8 @@ require('lazy').setup({
     config = function() require('better-comment').Setup() end,
   },
 
+  'github/copilot.vim',
+
   -- nice utils
   'folke/which-key.nvim',
 
