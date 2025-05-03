@@ -21,6 +21,13 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Treat .jrnl files as markdown
+vim.filetype.add({
+  extension = {
+    jrnl = "markdown",
+  },
+})
+
 ---
 require('lazy').setup({
 

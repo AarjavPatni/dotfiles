@@ -18,6 +18,7 @@ alias success='osascript -e '\''display notification "Your command ran successfu
 alias zc='nvim ~/.local/share/chezmoi/dot_zshrc.tmpl'
 alias zcc='cursor ~/.local/share/chezmoi/dot_zshrc.tmpl'
 alias zs='source ~/.zshrc'
+alias life-mistakes="jrnl edit -contains 'Life Mistakes Log'"
 
 # Git aliases
 alias ga='git add'
