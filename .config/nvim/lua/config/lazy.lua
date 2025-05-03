@@ -219,11 +219,17 @@ require('lazy').setup({
   },
 
   {
-    'nvimtools/none-ls.nvim',
+    "nvimtools/none-ls.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-        require("null-ls").setup()
+      local null_ls = require("null-ls")
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.formatting.prettier.with({ filetypes = { "markdown" } }),
+          null_ls.builtins.diagnostics.markdownlint,
+        },
+      })
     end,
-    requires = { "nvim-lua/plenary.nvim" },
   },
 
   'hrsh7th/nvim-cmp',
