@@ -13,3 +13,12 @@ alias uw-ssh="ssh -Y a3patni@linux.student.cs.uwaterloo.ca"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
+jrnl() {
+  if [[ "$1" == "list" ]]; then
+    shift
+    command jrnl --format short "$@"
+  else
+    command jrnl "$@"
+  fi
+}
+
