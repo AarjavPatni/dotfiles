@@ -17,6 +17,8 @@ jrnl() {
   if [[ "$1" == "list" ]]; then
     shift
     command jrnl --format short "$@"
+  elif [[ "$1" == "export" ]]; then
+    command jrnl --format markdown --file Documents/jrnl/
   else
     command jrnl "$@"
   fi
