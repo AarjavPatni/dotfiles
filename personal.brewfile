@@ -1,8 +1,5 @@
-tap RhetTbull/macnotesapp https://github.com/RhetTbull/macnotesapp
-
 # CLI Tools
 brew "ffmpeg"
-brew "macnotesapp"
 
 # Languages
 brew "node"
