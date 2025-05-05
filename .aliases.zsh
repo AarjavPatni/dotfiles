@@ -15,8 +15,8 @@ alias vd="cd ~/.config/nvim && v."
 alias nv="nvim"
 alias cat="bat -pp"
 alias success='osascript -e '\''display notification "Your command ran successfully." with title "Success"'\'''
-alias zc='nvim ~/.local/share/chezmoi/dot_zshrc.tmpl'
-alias zcc='cursor ~/.local/share/chezmoi/dot_zshrc.tmpl'
+alias zc='nvim ~/.zshrc'
+alias zcc='cursor ~/.zshrc'
 alias zs='source ~/.zshrc'
 alias life-mistakes="jrnl edit -contains 'Life Mistakes Log'"
 
