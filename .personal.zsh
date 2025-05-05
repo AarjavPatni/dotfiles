@@ -21,9 +21,9 @@ jrnl() {
     shift
     command jrnl --edit "$@"
   elif [[ "$1" == "export" ]]; then
-    mkdir -p ~/documents/jrnl
+    mkdir -p ~/Documents/jrnl
     shift
-    command jrnl --format markdown --file Documents/jrnl/ "$@"
+    command jrnl --format markdown --file ~/Documents/jrnl/ "$@"
   else
     command jrnl "$@"
   fi
