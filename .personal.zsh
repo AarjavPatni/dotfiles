@@ -29,3 +29,9 @@ jrnl() {
   fi
 }
 
+life_mistakes() {
+  jrnl edit -contains 'Life Mistakes Log'
+  jrnl --format markdown --file ~/Documents/ -contains 'Life Mistakes'
+  mv ~/Documents/2025-05-03_life-mistakes-log.md ~/Documents/Life-Mistakes.md
+}
+

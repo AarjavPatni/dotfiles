@@ -28,15 +28,6 @@ vim.filetype.add({
   },
 })
 
--- Export life-mistakes jrnl entry everytime it's saved
-vim.api.nvim_create_autocmd("BufUnload", {
-  pattern = "/private/var/folders/*/*.jrnl",
-  callback = function()
-    vim.fn.system("jrnl --format markdown --file ~/Documents/ -contains 'Life Mistakes'")
-    vim.fn.system("mv ~/Documents/2025-05-03_life-mistakes-log.md ~/Documents/Life-Mistakes.md")
-  end,
-})
-
 ---
 require('lazy').setup({
 
