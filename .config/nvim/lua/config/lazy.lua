@@ -30,9 +30,10 @@ vim.filetype.add({
 
 -- Export life-mistakes jrnl entry everytime it's saved
 vim.api.nvim_create_autocmd("VimLeavePre", {
-  pattern = "/private/var/folders/03/kwqjm66n255db4h8wpv834h00000gn/T/jrnl5x6e4qxm.jrnl",
+  pattern = "/private/var/folders/*/*.jrnl",
   callback = function()
-    vim.fn.system("echo 'Closed Vim with test.txt' >> ~/journal_hook.log")
+    vim.fn.system("jrnl --format markdown --file ~/Documents/ -contains 'Life Mistakes'")
+    vim.fn.system("mv ~/Documents/2025-05-03_life-mistakes-log.md ~/Documents/Life-Mistakes.md")
   end,
 })
 
