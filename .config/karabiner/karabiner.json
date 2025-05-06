@@ -4,9 +4,19 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Map Control+W to Option+Backspace",
+                        "description": "Map Control+W to Option+Backspace (except in Terminal, iTerm2, Ghostty)",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "w",
                                     "modifiers": {
