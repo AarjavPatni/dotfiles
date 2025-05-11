@@ -19,11 +19,14 @@ jrnl() {
     command jrnl --format short "$@"
   elif [[ "$1" == "edit" ]]; then
     shift
-    command jrnl --edit "$@"
+    command jrnl --edit -contains "$@"
   elif [[ "$1" == "export" ]]; then
     mkdir -p ~/Documents/jrnl
     shift
     command jrnl --format markdown --file ~/Documents/jrnl/ "$@"
+  elif [[ "$1" == "view" ]]; then
+    shift
+    command jrnl --format pretty -contains "$@"
   else
     command jrnl "$@"
   fi
