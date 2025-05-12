@@ -4,7 +4,7 @@ font-size = 15
 font-feature = "liga" # For ASCII ligatures
 
 # Styling
-theme = "$HOME/.config/ghostty/themes/Abernathy"
+theme = "Abernathy"
 window-padding-x = 6
 window-theme = dark
 macos-titlebar-style = tabs
