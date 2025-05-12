@@ -26,7 +26,7 @@ jrnl() {
     command jrnl --format markdown --file ~/Documents/jrnl/ "$@"
   elif [[ "$1" == "view" ]]; then
     shift
-    command jrnl --format pretty -contains "$@"
+    command jrnl --format md -contains "$@" | mdless
   else
     command jrnl "$@"
   fi
