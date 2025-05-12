@@ -39,6 +39,12 @@ nnoremap("<leader>D", "D")
 vnoremap("<leader>d", "d")
 vnoremap("<leader>D", "D")
 
+-- map leader versions to original functionality that copies to register
+nnoremap("<leader>yy", "\"+yy")
+nnoremap("<leader>Y", "\"+Y")
+vnoremap("<leader>y", "\"+y")
+vnoremap("<leader>Y", "\"+Y")
+
 -- search dotfiles
 nnoremap("<leader>f.", function()
     require('plugins.telescope').search_dotfiles()
