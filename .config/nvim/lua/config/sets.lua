@@ -62,3 +62,10 @@ vim.opt.shell="/bin/zsh"
 vim.api.nvim_create_autocmd("TermOpen", {
   command = "setlocal nonumber norelativenumber"
 })
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function()
+    vim.cmd("normal! zR")
+  end,
+})
+
