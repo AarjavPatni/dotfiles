@@ -400,5 +400,9 @@ require('lazy').setup({
 
   {
     'preservim/vim-markdown',
+  },
+
+  {
+    'mzlogin/vim-markdown-toc',
   }
 })
