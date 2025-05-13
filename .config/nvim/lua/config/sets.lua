@@ -64,8 +64,11 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*",
   callback = function()
-    vim.cmd("normal! zR")
+    vim.schedule(function()
+      vim.cmd("silent! normal! zR")
+    end)
   end,
 })
 
