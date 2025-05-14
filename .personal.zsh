@@ -37,6 +37,6 @@ life-mistakes() {
   jrnl --edit -contains 'Life Mistakes Log'
   jrnl --format markdown --file ~/Documents/ -contains 'Life Mistakes'
   mv -f ~/Documents/2025-05-03_life-mistakes-log.md ~/Documents/Life-Mistakes.md
-  sed -i '1s/.*/# Life Mistakes Log/' ~/Documents/Life-Mistakes.md
+  sed -i '' '1s/.*/# Life Mistakes Log/' ~/Documents/Life-Mistakes.md
 }
 
