@@ -29,6 +29,7 @@ jrnl() {
     command jrnl --format md -contains "$@" | tail -n +5 | mdless 2>/dev/null
   else
     command jrnl "$@"
+    git -C $HOME/.local/share/jrnl/ commit -am "$(date +%Y-%m-%d)"
   fi
 }
 
