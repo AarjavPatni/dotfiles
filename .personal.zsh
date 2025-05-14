@@ -17,6 +17,9 @@ jrnl() {
   if [[ "$1" == "list" ]]; then
     shift
     command jrnl --format short "$@"
+  elif [[ "$1" == "new" ]]; then
+    shift
+    command jrnl --edit "$@"
   elif [[ "$1" == "edit" ]]; then
     shift
     command jrnl --edit -contains "$@"
