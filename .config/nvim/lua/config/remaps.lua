@@ -45,9 +45,6 @@ nnoremap("<leader>Y", "\"+Y")
 vnoremap("<leader>y", "\"+y")
 vnoremap("<leader>Y", "\"+Y")
 
--- map ctrl+e to ignore suggestion
-nnoremap("<C-x><C-e>", "<C-e>")
-
 -- search dotfiles
 nnoremap("<leader>f.", function()
     require('plugins.telescope').search_dotfiles()
