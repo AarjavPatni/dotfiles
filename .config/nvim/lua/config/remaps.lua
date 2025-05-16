@@ -46,7 +46,7 @@ vnoremap("<leader>y", "\"+y")
 vnoremap("<leader>Y", "\"+Y")
 
 -- map ctrl+e to ignore suggestion
-nnoremap("<C-e>", "<C-x><C-e>")
+nnoremap("<C-x><C-e>", "<C-e>")
 
 -- search dotfiles
 nnoremap("<leader>f.", function()
