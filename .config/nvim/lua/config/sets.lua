@@ -1,6 +1,8 @@
 vim.opt.termguicolors 	= true
 vim.opt.encoding 	= "utf-8"
 vim.opt.syntax="on"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.opt.scrolloff  = 15
 vim.opt.sidescroll = 10
