@@ -25,25 +25,23 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "m"
 
 -- paste over highlight without losing stuff in d register
-xnoremap("<leader>p", "\"_dP")
+vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- make default dd and D delete without copying to register
-nnoremap("dd", "\"_dd")
-nnoremap("D", "\"_D")
-vnoremap("d", "\"_d")
-vnoremap("D", "\"_D")
+vim.keymap.set("n", "dd", '"_dd')
+vim.keymap.set("n", "D",  '"_D')
+vim.keymap.set("x", "d",  '"_d')
+vim.keymap.set("x", "D",  '"_D')
 
 -- map leader versions to original functionality that copies to register
-nnoremap("<leader>dd", "dd")
-nnoremap("<leader>D", "D")
-vnoremap("<leader>d", "d")
-vnoremap("<leader>D", "D")
+vim.keymap.set("n", "<leader>dd", "dd")
+vim.keymap.set("n", "<leader>D",  "D")
+vim.keymap.set("x", "<leader>d",  "d")
+vim.keymap.set("x", "<leader>D",  "D")
 
 -- map leader versions to original functionality that copies to register
-nnoremap("<leader>yy", "\"+yy")
-nnoremap("<leader>Y", "\"+Y")
-vnoremap("<leader>y", "\"+y")
-vnoremap("<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("x", "<leader>y", '"+y')
 
 -- search dotfiles
 nnoremap("<leader>f.", function()
