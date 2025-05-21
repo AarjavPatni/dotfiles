@@ -60,7 +60,7 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 
 -- Setup each LSP server with the same default configuration
-require("mason-lspconfig").setup_handlers {
+require("mason-lspconfig").setup {
   -- Default handler for all servers
   function(server_name)
     lspconfig[server_name].setup {
