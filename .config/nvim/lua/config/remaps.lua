@@ -48,6 +48,9 @@ nnoremap("<leader>f.", function()
     require('plugins.telescope').search_dotfiles()
 end)
 
+-- global autoindent
+vim.keymap.set("n", "==", "gg=G<C-o>")
+
 -- search files
 nnoremap("<leader>/", ":Telescope frecency workspace=CWD <CR>")
 nnoremap("<leader>fg", ":Telescope live_grep <CR>")
