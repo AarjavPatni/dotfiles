@@ -23,7 +23,7 @@ format = "[$branch]($style)"
 style = "yellow"
 
 [git_status]
-style = "green"
+style = "#28a745"
 
 [aws]
 disabled = false
