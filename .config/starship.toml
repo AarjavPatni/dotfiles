@@ -10,6 +10,9 @@ disabled = true
 [directory]
 style = "bright-blue"
 
+[package]
+format = '[$symbol$version]($style) '
+
 [character]
 success_symbol = "[❯](green)"
 error_symbol = "[❯](red)"
