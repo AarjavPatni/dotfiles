@@ -42,4 +42,3 @@ when = "test -s /tmp/dot_status"
 format = "[$output]($style) "
 style = "bold green"
 
-
