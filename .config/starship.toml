@@ -30,14 +30,6 @@ renamed = "»"
 deleted = "✘"
 stashed = "≡"
 
-[git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "magenta"
-
-[cmd_duration]
-format = "[$duration]($style) "
-style = "yellow"
-
 [aws]
 disabled = false
 symbol = "☁️"
