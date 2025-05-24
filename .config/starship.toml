@@ -55,8 +55,4 @@ when = "test -s /tmp/dot_status"
 format = "[$output]($style) "
 style = "bold green"
 
-[character]
-success_symbol = "[󰘧](bold #91e07d)"
-error_symbol = "[󰘧](bold #f26076)"
-vicmd_symbol = "[󰘧](bold #917de0)"
 
