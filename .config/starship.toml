@@ -45,6 +45,7 @@ style = "cyan"
 [rust]
 format = "[$rustc]($style) "
 style = "cyan"
+symbol = "🦀"
 
 [aws]
 disabled = false
