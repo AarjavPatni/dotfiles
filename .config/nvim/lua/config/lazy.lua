@@ -99,22 +99,6 @@ require('lazy').setup({
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function ()
-      require("codecompanion").setup({
-        adapters = {
-          copilot = function ()
-            return require("codecompanion.adapters").extend("copilot", {
-              name = "claude3.7",
-              schema = {
-                model = {
-                  default = "claude-3-7-sonnet",
-                },
-              }
-            })
-          end
-        }
-      })
-    end
   },
 
   -- nice utils
