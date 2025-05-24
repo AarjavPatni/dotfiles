@@ -38,15 +38,6 @@ style = "magenta"
 format = "[$duration]($style) "
 style = "yellow"
 
-[python]
-format = "[$virtualenv]($style) "
-style = "cyan"
-
-[rust]
-format = "[$rustc]($style) "
-style = "cyan"
-symbol = "🦀"
-
 [aws]
 disabled = false
 symbol = "☁️"
