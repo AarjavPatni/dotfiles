@@ -11,7 +11,7 @@ disabled = true
 style = "bright-blue"
 
 [package]
-format = '[$symbol$version]($style) '
+disabled = true
 
 [character]
 success_symbol = "[❯](green)"
