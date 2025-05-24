@@ -1,4 +1,3 @@
-
 [hostname]
 ssh_only = false
 format = "[$hostname]($style) "
@@ -41,6 +40,10 @@ style = "yellow"
 
 [python]
 format = "[$virtualenv]($style) "
+style = "cyan"
+
+[rust]
+format = "[$rustc]($style) "
 style = "cyan"
 
 [aws]
