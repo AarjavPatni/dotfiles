@@ -127,22 +127,29 @@ esac
 # Uncomment to see startup profiling results
 # zprof
 
-# Record start time before a command runs
+# Record start time and window id before a command runs
 preexec() {
   CMD_START_TIME=$SECONDS
+  CMD_START_WINDOW=$(osascript -e 'tell application "Ghostty" to id of front window')
 }
 
-# After the command finishes, check duration and notify if ≥ 5s and Ghostty isn’t frontmost
+# After the command finishes, check duration and notify if ≥ 5s and this window isn’t frontmost
 precmd() {
   if [[ -n $CMD_START_TIME ]]; then
     local duration=$((SECONDS - CMD_START_TIME))
     if (( duration >= 5 )); then
-      front_app=$(osascript -e 'tell application "System Events" to name of first application process whose frontmost is true')
-      if [[ $front_app != "ghostty" ]]; then
+      FRONT_APP=$(osascript -e 'tell application "System Events" to name of first application process whose frontmost is true')
+      if [[ $FRONT_APP == "Ghostty" ]]; then
+        FRONT_WINDOW=$(osascript -e 'tell application "Ghostty" to id of front window')
+      else
+        FRONT_WINDOW=""
+      fi
+
+      if [[ $FRONT_APP != "Ghostty" ]] || [[ $FRONT_WINDOW != "$CMD_START_WINDOW" ]]; then
         osascript -e 'display notification "Command completed" with title "Ghostty"'
       fi
     fi
-    unset CMD_START_TIME
+    unset CMD_START_TIME CMD_START_WINDOW
   fi
 }
 
