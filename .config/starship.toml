@@ -41,4 +41,5 @@ style = "bold green"
 min_time = 120_000
 style = "yellow"
 show_notifications = true
+min_time_to_notify = 2_000
 
