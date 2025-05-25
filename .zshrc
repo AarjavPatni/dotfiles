@@ -138,8 +138,7 @@ precmd() {
     local duration=$((SECONDS - CMD_START_TIME))
     if (( duration >= 5 )); then
       front_app=$(osascript -e 'tell application "System Events" to name of first application process whose frontmost is true')
-      if [[ $front_app != "Ghostty" ]]; then
-        echo "$front_app"
+      if [[ $front_app != "ghostty" ]]; then
         osascript -e 'display notification "Command completed" with title "Ghostty"'
       fi
     fi

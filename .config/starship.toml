@@ -38,7 +38,7 @@ format = "[$output]($style) "
 style = "bold green"
 
 [cmd_duration]
-min_time = 2_000
+min_time = 120_000
 style = "yellow"
 format = "⏳️ [$duration]($style) "
 
