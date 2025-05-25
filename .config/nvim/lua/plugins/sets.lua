@@ -1,3 +1,14 @@
+-- Reopen file in last closed position
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = { "*" },
+  callback = function()
+    local last_pos = vim.fn.line([['"]])
+    if last_pos > 1 and last_pos <= vim.fn.line("$") then
+      vim.api.nvim_exec('normal! g`"', false)
+    end
+  end,
+})
+
 vim.opt.termguicolors 	= true
 vim.opt.encoding 	= "utf-8"
 vim.opt.syntax="on"
