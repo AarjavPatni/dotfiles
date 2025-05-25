@@ -127,4 +127,20 @@ esac
 # Uncomment to see startup profiling results
 # zprof
 
+# Record start time before a command runs
+preexec() {
+  CMD_START_TIME=$SECONDS
+}
+
+# After the command finishes, check duration and notify if >= 5s
+precmd() {
+  if [[ -n $CMD_START_TIME ]]; then
+    local duration=$((SECONDS - CMD_START_TIME))
+    if (( duration >= 5 )); then
+      osascript -e 'display notification "Command completed" with title "Ghostty"'
+    fi
+    unset CMD_START_TIME
+  fi
+}
+
 export ERL_AFLAGS="-kernel shell_history enabled"
