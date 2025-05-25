@@ -38,8 +38,7 @@ format = "[$output]($style) "
 style = "bold green"
 
 [cmd_duration]
-min_time = 120_000
+min_time = 2_000
 style = "yellow"
-show_notifications = true
-min_time_to_notify = 2_000
+format = "⏳[$duration]($style) "
 
