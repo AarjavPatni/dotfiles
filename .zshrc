@@ -53,7 +53,7 @@ function write_message() {
 
   # Choose color based on message content
   local color
-  if [[ $message == *"❌"* ]]; then
+  if [[ $message == *"❌️"* ]]; then
     color=$set_fg_yellow
   elif [[ $message == *"✅"* ]]; then
     color=$set_fg_green
@@ -79,13 +79,13 @@ check_dot_status() {
     if dot pull --rebase &>/dev/null; then
       echo "" >/tmp/dot_status
     else
-      echo "❌ ↓" >/tmp/dot_status
+      echo "❌️ ↓" >/tmp/dot_status
       return 1
     fi
     if dot push &>/dev/null; then
       echo "✅ ↑" >/tmp/dot_status
     else
-      echo "❌ ↑" >/tmp/dot_status
+      echo "❌️ ↑" >/tmp/dot_status
       return 1
     fi
   else
