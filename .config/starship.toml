@@ -39,7 +39,6 @@ style = "bold green"
 
 [cmd_duration]
 min_time = 120_000
-format = "[$duration]($style) "
 style = "yellow"
 show_notifications = true
 
