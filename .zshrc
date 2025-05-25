@@ -132,12 +132,15 @@ preexec() {
   CMD_START_TIME=$SECONDS
 }
 
-# After the command finishes, check duration and notify if >= 5s
+# After the command finishes, check duration and notify if ≥ 5s and Ghostty isn’t frontmost
 precmd() {
   if [[ -n $CMD_START_TIME ]]; then
     local duration=$((SECONDS - CMD_START_TIME))
     if (( duration >= 5 )); then
-      osascript -e 'display notification "Command completed" with title "Ghostty"'
+      front_app=$(osascript -e 'tell application "System Events" to name of first application process whose frontmost is true')
+      if [[ $front_app != "Ghostty" ]]; then
+        osascript -e 'display notification "Command completed" with title "Ghostty"'
+      fi
     fi
     unset CMD_START_TIME
   fi
