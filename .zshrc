@@ -127,10 +127,17 @@ esac
 # Uncomment to see startup profiling results
 # zprof
 
-# Record start time and window id before a command runs
+# Record start time and window index before a command runs
 preexec() {
   CMD_START_TIME=$SECONDS
-  CMD_START_WINDOW=$(osascript -e 'tell application "Ghostty" to id of front window')
+  CMD_START_WIN_IDX=$(osascript -e '
+    tell application "System Events"
+      tell application process "Ghostty"
+        set w to value of attribute "AXFocusedWindow" of it
+        return index of w
+      end tell
+    end tell
+  ')
 }
 
 # After the command finishes, check duration and notify if ≥ 5s and this window isn’t frontmost
@@ -140,16 +147,23 @@ precmd() {
     if (( duration >= 5 )); then
       FRONT_APP=$(osascript -e 'tell application "System Events" to name of first application process whose frontmost is true')
       if [[ $FRONT_APP == "Ghostty" ]]; then
-        FRONT_WINDOW=$(osascript -e 'tell application "Ghostty" to id of front window')
+        CURR_WIN_IDX=$(osascript -e '
+          tell application "System Events"
+            tell application process "Ghostty"
+              set w to value of attribute "AXFocusedWindow" of it
+              return index of w
+            end tell
+          end tell
+        ')
       else
-        FRONT_WINDOW=""
+        CURR_WIN_IDX=""
       fi
 
-      if [[ $FRONT_APP != "Ghostty" ]] || [[ $FRONT_WINDOW != "$CMD_START_WINDOW" ]]; then
+      if [[ $FRONT_APP != "Ghostty" ]] || [[ $CURR_WIN_IDX != "$CMD_START_WIN_IDX" ]]; then
         osascript -e 'display notification "Command completed" with title "Ghostty"'
       fi
     fi
-    unset CMD_START_TIME CMD_START_WINDOW
+    unset CMD_START_TIME CMD_START_WIN_IDX
   fi
 }
 
