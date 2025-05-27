@@ -128,25 +128,21 @@ esac
 # Uncomment to see startup profiling results
 # zprof
 
-# Record start time before a command runs
 preexec() {
   CMD_START_TIME=$SECONDS
+  CMD_START_WINDOW=$(aerospace list-windows --focused | awk '{print $1}')
 }
 
-# After the command finishes, check duration and notify if ≥ 5s and Ghostty isn’t frontmost
 precmd() {
-  if [[ -n $CMD_START_TIME ]]; then
+  if [[ -n $CMD_START_TIME && -n $CMD_START_WINDOW ]]; then
     local duration=$((SECONDS - CMD_START_TIME))
-    local saved_window_id=$(aerospace list-windows --focused)
+    local current_window_id=$(aerospace list-windows --focused | awk '{print $1}')
 
-    if (( duration >= 5 )); then
-      local current_window_id=$(aerospace list-windows --focused)
-
-      if [[ $saved_window_id != $current_window_id ]]; then
-        osascript -e 'display notification "Command completed" with title "Ghostty"'
-      fi
+    if (( duration >= 5 )) && [[ $CMD_START_WINDOW != $current_window_id ]]; then
+      osascript -e 'display notification "Command completed" with title "Ghostty"'
     fi
-    unset CMD_START_TIME
+
+    unset CMD_START_TIME CMD_START_WINDOW
   fi
 }
 
