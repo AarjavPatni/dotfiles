@@ -8,6 +8,7 @@ alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 if [[ "$(uname)" == "Darwin" ]]; then
 
   export PATH="/opt/homebrew/bin:/usr/local/bin:/Users/aarjav/.local/bin:/usr/local/opt/python@3.12/bin:$PATH"
+  export PATH="/opt/homebrew/sbin:$PATH"
   export HOMEBREW_AUTO_UPDATE_SECS="86400"
   alias things3-reset="cd ~ && fd 'thingsmac' -0 | xargs -0 rm -rf"
 
@@ -120,8 +121,8 @@ fi
 # pnpm
 export PNPM_HOME="/Users/aarjav/Library/pnpm"
 case ":$PATH:" in
-*":$PNPM_HOME:"*) ;;
-*) export PATH="$PNPM_HOME:$PATH" ;;
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
 # Uncomment to see startup profiling results
