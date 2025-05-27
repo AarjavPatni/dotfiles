@@ -138,13 +138,16 @@ precmd() {
   if [[ -n $CMD_START_TIME ]]; then
     local duration=$((SECONDS - CMD_START_TIME))
     if (( duration >= 5 )); then
-      front_app=$(osascript -e 'tell application "System Events" to name of first application process whose frontmost is true')
-      if [[ $front_app != "ghostty" ]]; then
+      local saved_window_id=$(aerospace list-windows --focused)
+      local current_window_id=$(aerospace list-windows --focused)
+
+      if [[ $saved_window_id != $current_window_id ]]; then
         osascript -e 'display notification "Command completed" with title "Ghostty"'
       fi
     fi
     unset CMD_START_TIME
   fi
 }
+
 
 export ERL_AFLAGS="-kernel shell_history enabled"
