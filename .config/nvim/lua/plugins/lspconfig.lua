@@ -38,7 +38,7 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '<space>fo', function() vim.lsp.buf.format { async = true } end, bufopts)
 
   -- Enable inlay hints
-  vim.lsp.inlay_hint(0, true)
+  vim.lsp.inlay_hint.enable(0, true)
 end
 
 -- BORDERS
