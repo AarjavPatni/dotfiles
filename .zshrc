@@ -137,8 +137,9 @@ preexec() {
 precmd() {
   if [[ -n $CMD_START_TIME ]]; then
     local duration=$((SECONDS - CMD_START_TIME))
+    local saved_window_id=$(aerospace list-windows --focused)
+
     if (( duration >= 5 )); then
-      local saved_window_id=$(aerospace list-windows --focused)
       local current_window_id=$(aerospace list-windows --focused)
 
       if [[ $saved_window_id != $current_window_id ]]; then
