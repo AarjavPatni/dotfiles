@@ -19,6 +19,7 @@ alias success='osascript -e '\''display notification "Your command ran successfu
 alias zc='nvim ~/.zshrc'
 alias zcc='cursor ~/.zshrc'
 alias zs='source ~/.zshrc'
+alias fk='fuck'
 
 # Git aliases
 alias ga='git add'

@@ -148,3 +148,5 @@ precmd() {
 
 
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+eval $(thefuck --alias)
