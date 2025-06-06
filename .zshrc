@@ -10,7 +10,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export PATH="/opt/homebrew/bin:/usr/local/bin:/Users/aarjav/.local/bin:/usr/local/opt/python@3.12/bin:$PATH"
   export PATH="/opt/homebrew/sbin:$PATH"
   export HOMEBREW_AUTO_UPDATE_SECS="86400"
-  alias things3-reset="cd ~ && fd 'thingsmac' -0 | xargs -0 rm -rf"
+  alias things3-reset="cd ~ && fd 'thingsmac' -0 | xargs -0 rm -rf; cd - && open -a 'Things3'"
 
 fi
 
