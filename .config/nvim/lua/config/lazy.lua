@@ -415,5 +415,7 @@ require('lazy').setup({
       vim.g.tex_conceal = 'abdmg'
       vim.opt.conceallevel = 1
     end
-  }
+  },
+
+  'chrisbra/csv.vim',
 })
