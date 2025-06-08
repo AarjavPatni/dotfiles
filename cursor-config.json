@@ -71,5 +71,8 @@
         }
     ],
     "window.commandCenter": 1,
-    "editor.accessibilitySupport": "off"
+    "editor.accessibilitySupport": "off",
+    "cSpell.userWords": [
+        "refinedev"
+    ]
 }
