@@ -66,7 +66,7 @@ function write_message() {
   echo
 }
 
-function run_cpp() { g++ \"$1\" -o tmp && ./tmp && rm tmp; }
+function run_cpp() { g++ \"./$1\" -o tmp && ./tmp && rm tmp; }
 
 check_dot_status() {
   if ! dot diff --quiet &>/dev/null; then
