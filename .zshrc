@@ -68,7 +68,7 @@ function write_message() {
 
 function run_cpp() {
     file=$(find . -maxdepth 1 -name "$1" -print -quit)
-    [[ -n "$file" ]] && g++ "$file" -o tmp && ./tmp && rm tmp
+    [[ -n "$file" ]] && g++ "$file" -o tmp && ./tmp && rm -rf tmp
 }
 
 check_dot_status() {
