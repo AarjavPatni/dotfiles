@@ -66,6 +66,8 @@ function write_message() {
   echo
 }
 
+function run_cpp() { g++ \"$1\" -o tmp && ./tmp && rm tmp; }
+
 check_dot_status() {
   if ! dot diff --quiet &>/dev/null; then
     commit_message="Update $(date '+%Y-%m-%d %H:%M:%S')"
