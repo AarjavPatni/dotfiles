@@ -229,26 +229,29 @@ require('lazy').setup({
     'bullets-vim/bullets.vim',
   },
 
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
-  'hrsh7th/cmp-cmdline',
-  'saadparwaiz1/cmp_luasnip',
   {
-    'L3MON4D3/LuaSnip',
-    version = 'v2.*',
-    config = function()
-      require('luasnip.loaders.from_vscode').lazy_load()
-      local luasnip = require('luasnip')
-      luasnip.filetype_extend('javascript', { 'html' })
-      luasnip.filetype_extend('typescript', { 'html' })
-      luasnip.filetype_extend('javascriptreact', { 'html' })
-      luasnip.filetype_extend('typescriptreact', { 'html' })
-    end,
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'saadparwaiz1/cmp_luasnip',
+      {
+        'L3MON4D3/LuaSnip',
+        config = function()
+          require('luasnip.loaders.from_vscode').lazy_load()
+          local luasnip = require('luasnip')
+          luasnip.filetype_extend('javascript', { 'html' })
+          luasnip.filetype_extend('typescript', { 'html' })
+          luasnip.filetype_extend('javascriptreact', { 'html' })
+          luasnip.filetype_extend('typescriptreact', { 'html' })
+        end,
+      },
+      'rafamadriz/friendly-snippets',
+      'onsails/lspkind.nvim',
+    },
   },
-  'rafamadriz/friendly-snippets',
-  'onsails/lspkind.nvim',
 
   -- linting
   'mfussenegger/nvim-lint',
