@@ -241,6 +241,7 @@ require('lazy').setup({
         'L3MON4D3/LuaSnip',
         config = function()
           require('luasnip.loaders.from_vscode').lazy_load()
+          require("luasnip.loaders.from_vscode").load({ paths = { vim.fn.expand("~/Library/Application Support/Cursor/User/snippets/") }})
           local luasnip = require('luasnip')
           luasnip.filetype_extend('javascript', { 'html' })
           luasnip.filetype_extend('typescript', { 'html' })
