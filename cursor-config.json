@@ -6,7 +6,7 @@
     "files.autoSaveDelay": 100,
     "editor.fontFamily": "'Iosevka Term', monospace",
     "editor.fontLigatures": true,
-    "editor.fontSize": 15,
+    "editor.fontSize": 14,
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "git.autofetch": true,
