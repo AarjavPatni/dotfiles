@@ -74,5 +74,6 @@
     "editor.accessibilitySupport": "off",
     "cSpell.userWords": [
         "refinedev"
-    ]
+    ],
+    "diffEditor.ignoreTrimWhitespace": true
 }
