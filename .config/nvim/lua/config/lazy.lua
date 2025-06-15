@@ -230,26 +230,21 @@ require('lazy').setup({
   },
 
   {
-    'hrsh7th/nvim-cmp',
+    "hrsh7th/nvim-cmp",
     dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
-      'saadparwaiz1/cmp_luasnip',
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
       {
-        'L3MON4D3/LuaSnip',
+        "L3MON4D3/LuaSnip",
         config = function()
-          require("luasnip.loaders.from_vscode").load({ paths = { "/Users/aarjav/Library/Application Support/Cursor/User/snippets/" }})
-          local luasnip = require('luasnip')
-          luasnip.filetype_extend('javascript', { 'html' })
-          luasnip.filetype_extend('typescript', { 'html' })
-          luasnip.filetype_extend('javascriptreact', { 'html' })
-          luasnip.filetype_extend('typescriptreact', { 'html' })
+          require("luasnip.loaders.from_snipmate").load()
         end,
       },
-      'rafamadriz/friendly-snippets',
-      'onsails/lspkind.nvim',
+      "saadparwaiz1/cmp_luasnip",
+      "rafamadriz/friendly-snippets",
+      "onsails/lspkind.nvim",
     },
   },
 
