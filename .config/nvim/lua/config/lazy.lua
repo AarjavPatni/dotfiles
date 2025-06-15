@@ -90,7 +90,12 @@ require('lazy').setup({
     config = function() require('better-comment').Setup() end,
   },
 
-  'github/copilot.vim',
+  {
+    "github/copilot.vim",
+    config = function()
+      vim.cmd("autocmd VimEnter * Copilot disable")
+    end
+  },
 
   {
     "olimorris/codecompanion.nvim",
@@ -230,18 +235,26 @@ require('lazy').setup({
   },
 
   {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("luasnip").config.set_config {
+        history = true,
+        updateevents = "TextChanged,TextChangedI",
+      }
+      require("luasnip.loaders.from_snipmate").lazy_load()
+      require("luasnip.loaders.from_vscode").lazy_load() -- optional
+    end,
+  },
+
+  {
     "hrsh7th/nvim-cmp",
+    config = true,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
-      {
-        "L3MON4D3/LuaSnip",
-        config = function()
-          require("luasnip.loaders.from_snipmate").load()
-        end,
-      },
+      "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
       "onsails/lspkind.nvim",
